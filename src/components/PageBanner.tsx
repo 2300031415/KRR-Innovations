@@ -42,16 +42,16 @@ export const PageBanner: React.FC<PageBannerProps> = ({ title, breadcrumbs, subt
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-center items-center space-x-2 text-sm text-slate-350 mb-4"
+          className="flex justify-center items-center space-x-2 text-sm text-slate-300/85 mb-4"
         >
-          <Link to="/" className="hover:text-accent transition-colors">
+          <Link to="/" className="text-slate-300 hover:text-accent transition-colors font-medium">
             Home
           </Link>
           {breadcrumbs.map((crumb, idx) => (
             <React.Fragment key={idx}>
-              <ChevronRight className="w-3 h-3 text-slate-500" />
+              <ChevronRight className="w-3 h-3 text-slate-400" />
               {crumb.path ? (
-                <Link to={crumb.path} className="hover:text-accent transition-colors">
+                <Link to={crumb.path} className="text-slate-300 hover:text-accent transition-colors font-medium">
                   {crumb.label}
                 </Link>
               ) : (
