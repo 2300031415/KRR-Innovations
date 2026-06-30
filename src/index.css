@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2D2F92;
+  --color-primary-light: #3F42B5;
+  --color-primary-dark: #1E2068;
+  --color-secondary: #8B3FAF;
+  --color-secondary-light: #A95CD1;
+  --color-secondary-dark: #682A89;
+  --color-accent: #6FD5C3;
+  --color-accent-light: #92E6D8;
+  --color-accent-dark: #4BBAA6;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+@utility glass-nav {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@utility dark-glass-card {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility bg-gradient-mesh {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(139, 63, 175, 0.15) 0px, transparent 50%), 
+    radial-gradient(at 100% 0%, rgba(45, 47, 146, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(111, 213, 195, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(139, 63, 175, 0.1) 0px, transparent 50%);
+}
+
+@utility bg-hero-gradient {
+  background: linear-gradient(135deg, #2D2F92 0%, #1a1c5d 50%, #8B3FAF 100%);
+}
+
+/* Custom Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D2F92;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B3FAF;
+}
