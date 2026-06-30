@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import PageBanner from "../components/PageBanner";
@@ -8,6 +8,15 @@ import CTA from "../components/CTA";
 
 export const About: React.FC = () => {
   const [filter, setFilter] = useState("All");
+  const [loadImages, setLoadImages] = useState(false);
+
+  useEffect(() => {
+    // Delay loading the images slightly so the page layout mounts instantly first
+    const timer = setTimeout(() => {
+      setLoadImages(true);
+    }, 450); // 450ms delay
+    return () => clearTimeout(timer);
+  }, []);
 
   const galleryImages = [
     { src: "/pptx_images/slide_1_img_0_0.jpg", category: "Corporate", caption: "KRR Innovations Vision Kickoff" },
@@ -303,12 +312,19 @@ export const About: React.FC = () => {
                   key={img.src}
                   className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-sm aspect-square flex flex-col justify-between"
                 >
-                  <div className="w-full h-full overflow-hidden">
-                    <img 
-                      src={img.src} 
-                      alt={img.caption} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                    />
+                  <div className="w-full h-full overflow-hidden bg-slate-150">
+                    {loadImages ? (
+                      <img 
+                        src={img.src} 
+                        alt={img.caption} 
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
+                        <span className="text-slate-400 text-xs">Loading...</span>
+                      </div>
+                    )}
                   </div>
                   {/* Hover banner details */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">

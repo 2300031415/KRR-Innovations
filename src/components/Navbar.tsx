@@ -38,10 +38,13 @@ export const Navbar: React.FC = () => {
     return location.pathname.startsWith(path);
   };
 
+  const isHomePage = location.pathname === "/";
+  const showSolidNav = isScrolled || !isHomePage;
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
+        showSolidNav
           ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md py-4"
           : "bg-transparent py-6"
       }`}
@@ -63,12 +66,12 @@ export const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className={`font-heading font-extrabold text-lg leading-tight tracking-tight ${
-                isScrolled ? "text-slate-900" : "text-slate-900 lg:text-white"
+                showSolidNav ? "text-slate-900" : "text-slate-900 lg:text-white"
               }`}>
                 KRR Innovations
               </span>
               <span className={`font-sans text-[10px] uppercase font-bold tracking-widest ${
-                isScrolled ? "text-primary" : "text-primary lg:text-accent"
+                showSolidNav ? "text-primary" : "text-primary lg:text-accent"
               }`}>
                 Pvt. Ltd.
               </span>
@@ -82,9 +85,9 @@ export const Navbar: React.FC = () => {
               className={`font-medium transition-colors duration-300 hover:text-secondary ${
                 isActive("/")
                   ? "text-primary border-b-2 border-primary pb-1"
-                  : isScrolled
+                  : showSolidNav
                   ? "text-slate-700"
-                  : "text-slate-800 lg:text-white/90"
+                  : "text-slate-850 lg:text-white/90"
               }`}
             >
               Home
@@ -95,9 +98,9 @@ export const Navbar: React.FC = () => {
               className={`font-medium transition-colors duration-300 hover:text-secondary ${
                 isActive("/about")
                   ? "text-primary border-b-2 border-primary pb-1"
-                  : isScrolled
+                  : showSolidNav
                   ? "text-slate-700"
-                  : "text-slate-800 lg:text-white/90"
+                  : "text-slate-850 lg:text-white/90"
               }`}
             >
               About
@@ -113,9 +116,9 @@ export const Navbar: React.FC = () => {
                 className={`flex items-center space-x-1 font-medium transition-colors duration-300 hover:text-secondary focus:outline-none py-2 ${
                   location.pathname.startsWith("/services")
                     ? "text-primary border-b-2 border-primary pb-1"
-                    : isScrolled
+                    : showSolidNav
                     ? "text-slate-700"
-                    : "text-slate-800 lg:text-white/90"
+                    : "text-slate-850 lg:text-white/90"
                 }`}
               >
                 <span>Services</span>
@@ -155,9 +158,9 @@ export const Navbar: React.FC = () => {
               className={`font-medium transition-colors duration-300 hover:text-secondary ${
                 isActive("/vision-mission")
                   ? "text-primary border-b-2 border-primary pb-1"
-                  : isScrolled
+                  : showSolidNav
                   ? "text-slate-700"
-                  : "text-slate-800 lg:text-white/90"
+                  : "text-slate-850 lg:text-white/90"
               }`}
             >
               Vision & Mission
@@ -168,9 +171,9 @@ export const Navbar: React.FC = () => {
               className={`font-medium transition-colors duration-300 hover:text-secondary ${
                 isActive("/industries")
                   ? "text-primary border-b-2 border-primary pb-1"
-                  : isScrolled
+                  : showSolidNav
                   ? "text-slate-700"
-                  : "text-slate-800 lg:text-white/90"
+                  : "text-slate-850 lg:text-white/90"
               }`}
             >
               Industries
@@ -179,7 +182,7 @@ export const Navbar: React.FC = () => {
             <Link
               to="/contact"
               className={`px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
-                isScrolled
+                showSolidNav
                   ? "bg-primary text-white hover:bg-primary-light"
                   : "bg-white text-primary hover:bg-slate-100 shadow-md"
               }`}
@@ -193,7 +196,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2 rounded-lg focus:outline-none ${
-                isScrolled ? "text-slate-800" : "text-slate-900"
+                showSolidNav ? "text-slate-800" : "text-white"
               }`}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
