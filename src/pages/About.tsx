@@ -10,17 +10,17 @@ export const About: React.FC = () => {
   const [filter, setFilter] = useState("All");
 
   const galleryImages = [
-    { src: "/src/assets/pptx_images/slide_1_img_0_0.jpg", category: "Corporate", caption: "KRR Innovations Vision Kickoff" },
-    { src: "/src/assets/pptx_images/slide_1_img_1_1.jpg", category: "Corporate", caption: "Corporate Collaboration Session" },
-    { src: "/src/assets/pptx_images/slide_1_img_2_2.jpg", category: "Corporate", caption: "Leadership Meeting" },
-    { src: "/src/assets/pptx_images/slide_1_img_3_3.jpg", category: "Corporate", caption: "Strategic Team Building" },
-    { src: "/src/assets/pptx_images/slide_3_img_1_14.jpg", category: "Events", caption: "Siri MSME Industrial Expo & Fairs" },
-    { src: "/src/assets/pptx_images/slide_3_img_2_15.jpg", category: "Events", caption: "Business Networking Meetup" },
-    { src: "/src/assets/pptx_images/slide_3_img_3_16.jpg", category: "Events", caption: "Startup Pitch & Mentoring Day" },
-    { src: "/src/assets/pptx_images/slide_5_img_0_34.jpg", category: "Training", caption: "Skill Development Training Bootcamp" },
-    { src: "/src/assets/pptx_images/slide_5_img_1_35.jpg", category: "Training", caption: "Entrepreneurship Development Program" },
-    { src: "/src/assets/pptx_images/slide_5_img_2_36.jpg", category: "Training", caption: "Interactive Technology Workshop" },
-    { src: "/src/assets/pptx_images/slide_5_img_3_37.jpg", category: "Training", caption: "Professional Leadership Development" }
+    { src: "/pptx_images/slide_1_img_0_0.jpg", category: "Corporate", caption: "KRR Innovations Vision Kickoff" },
+    { src: "/pptx_images/slide_1_img_1_1.jpg", category: "Corporate", caption: "Corporate Collaboration Session" },
+    { src: "/pptx_images/slide_1_img_2_2.jpg", category: "Corporate", caption: "Leadership Meeting" },
+    { src: "/pptx_images/slide_1_img_3_3.jpg", category: "Corporate", caption: "Strategic Team Building" },
+    { src: "/pptx_images/slide_3_img_1_14.jpg", category: "Events", caption: "Siri MSME Industrial Expo & Fairs" },
+    { src: "/pptx_images/slide_3_img_2_15.jpg", category: "Events", caption: "Business Networking Meetup" },
+    { src: "/pptx_images/slide_3_img_3_16.jpg", category: "Events", caption: "Startup Pitch & Mentoring Day" },
+    { src: "/pptx_images/slide_5_img_0_34.jpg", category: "Training", caption: "Skill Development Training Bootcamp" },
+    { src: "/pptx_images/slide_5_img_1_35.jpg", category: "Training", caption: "Entrepreneurship Development Program" },
+    { src: "/pptx_images/slide_5_img_2_36.jpg", category: "Training", caption: "Interactive Technology Workshop" },
+    { src: "/pptx_images/slide_5_img_3_37.jpg", category: "Training", caption: "Professional Leadership Development" }
   ];
 
   const filteredImages = filter === "All" 
