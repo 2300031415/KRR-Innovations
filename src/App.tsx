@@ -1,17 +1,16 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 
-// Lazy load pages for optimized bundle loading
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const VisionMission = lazy(() => import("./pages/VisionMission"));
-const Industries = lazy(() => import("./pages/Industries"));
-const Contact = lazy(() => import("./pages/Contact"));
-const Ipr = lazy(() => import("./pages/services/Ipr"));
-const Technology = lazy(() => import("./pages/services/Technology"));
-const Events = lazy(() => import("./pages/services/Events"));
-const Training = lazy(() => import("./pages/services/Training"));
+import Home from "./pages/Home";
+import About from "./pages/About";
+import VisionMission from "./pages/VisionMission";
+import Industries from "./pages/Industries";
+import Contact from "./pages/Contact";
+import Ipr from "./pages/services/Ipr";
+import Technology from "./pages/services/Technology";
+import Events from "./pages/services/Events";
+import Training from "./pages/services/Training";
 
 // Visual fallback skeleton spinner for lazy-loaded transitions
 const PageLoader = () => (
