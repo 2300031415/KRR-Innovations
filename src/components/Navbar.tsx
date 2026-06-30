@@ -50,157 +50,165 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between w-full">
           
-          {/* Logo & Company Name */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-secondary p-[2px] shadow-md shadow-primary/20">
-              <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[10px] flex items-center justify-center overflow-hidden">
-                <img src={logoImg} className="w-full h-full object-cover" alt="KRR Innovations Logo" />
+          {/* Left Side: Logo & Main Navigation Links */}
+          <div className="flex items-center space-x-12">
+            {/* Logo & Company Name */}
+            <Link to="/" className="flex items-center space-x-3 group">
+              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-secondary p-[2px] shadow-md shadow-primary/20">
+                <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[10px] flex items-center justify-center overflow-hidden">
+                  <img src={logoImg} className="w-full h-full object-cover" alt="KRR Innovations Logo" />
+                </div>
+                <motion.div 
+                  className="absolute inset-0 rounded-xl bg-gradient-to-tr from-primary to-secondary -z-10 blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                />
               </div>
-              <motion.div 
-                className="absolute inset-0 rounded-xl bg-gradient-to-tr from-primary to-secondary -z-10 blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-300"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className={`font-heading font-extrabold text-lg leading-tight tracking-tight ${
-                showSolidNav ? "text-slate-900" : "text-slate-900 lg:text-white"
-              }`}>
-                KRR Innovations
-              </span>
-              <span className={`font-sans text-[10px] uppercase font-bold tracking-widest ${
-                showSolidNav ? "text-primary" : "text-primary lg:text-accent"
-              }`}>
-                Pvt. Ltd.
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <Link
-              to="/"
-              className={`font-medium transition-colors duration-300 hover:text-secondary ${
-                isActive("/")
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : showSolidNav
-                  ? "text-slate-700"
-                  : "text-slate-850 lg:text-white/90"
-              }`}
-            >
-              Home
+              <div className="flex flex-col">
+                <span className={`font-heading font-extrabold text-lg leading-tight tracking-tight ${
+                  showSolidNav ? "text-slate-900" : "text-slate-900 lg:text-white"
+                }`}>
+                  KRR Innovations
+                </span>
+                <span className={`font-sans text-[10px] uppercase font-bold tracking-widest ${
+                  showSolidNav ? "text-primary" : "text-primary lg:text-accent"
+                }`}>
+                  Pvt. Ltd.
+                </span>
+              </div>
             </Link>
 
-            <Link
-              to="/about"
-              className={`font-medium transition-colors duration-300 hover:text-secondary ${
-                isActive("/about")
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : showSolidNav
-                  ? "text-slate-700"
-                  : "text-slate-850 lg:text-white/90"
-              }`}
-            >
-              About
-            </Link>
-
-            {/* Services Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setIsServicesDropdownOpen(true)}
-              onMouseLeave={() => setIsServicesDropdownOpen(false)}
-            >
-              <button
-                className={`flex items-center space-x-1 font-medium transition-colors duration-300 hover:text-secondary focus:outline-none py-2 ${
-                  location.pathname.startsWith("/services")
+            {/* Desktop Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link
+                to="/"
+                className={`font-medium transition-colors duration-300 ${
+                  isActive("/")
                     ? "text-primary border-b-2 border-primary pb-1"
                     : showSolidNav
-                    ? "text-slate-700"
-                    : "text-slate-850 lg:text-white/90"
+                    ? "text-slate-700 hover:text-primary"
+                    : "text-white/90 hover:text-accent"
                 }`}
               >
-                <span>Services</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesDropdownOpen ? "rotate-180" : ""}`} />
-              </button>
+                Home
+              </Link>
 
-              <AnimatePresence>
-                {isServicesDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 15 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-xl py-3 border border-slate-100 backdrop-blur-xl"
-                  >
-                    {servicesData.map((service) => (
-                      <Link
-                        key={service.path}
-                        to={service.path}
-                        className="block px-6 py-3 hover:bg-slate-50 transition-colors duration-200 group"
-                      >
-                        <p className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors duration-150">
-                          {service.title}
-                        </p>
-                        <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
-                          {service.description}
-                        </p>
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <Link
+                to="/about"
+                className={`font-medium transition-colors duration-300 ${
+                  isActive("/about")
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : showSolidNav
+                    ? "text-slate-700 hover:text-primary"
+                    : "text-white/90 hover:text-accent"
+                }`}
+              >
+                About
+              </Link>
+
+              {/* Services Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                onMouseLeave={() => setIsServicesDropdownOpen(false)}
+              >
+                <button
+                  className={`flex items-center space-x-1 font-medium transition-colors duration-300 focus:outline-none py-2 ${
+                    location.pathname.startsWith("/services")
+                      ? "text-primary border-b-2 border-primary pb-1"
+                      : showSolidNav
+                      ? "text-slate-700 hover:text-primary"
+                      : "text-white/90 hover:text-accent"
+                  }`}
+                >
+                  <span>Services</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesDropdownOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                <AnimatePresence>
+                  {isServicesDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 15 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-xl py-3 border border-slate-100 backdrop-blur-xl"
+                    >
+                      {servicesData.map((service) => (
+                        <Link
+                          key={service.path}
+                          to={service.path}
+                          className="block px-6 py-3 hover:bg-slate-50 transition-colors duration-200 group"
+                        >
+                          <p className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors duration-150">
+                            {service.title}
+                          </p>
+                          <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
+                            {service.description}
+                          </p>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <Link
+                to="/vision-mission"
+                className={`font-medium transition-colors duration-300 ${
+                  isActive("/vision-mission")
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : showSolidNav
+                    ? "text-slate-700 hover:text-primary"
+                    : "text-white/90 hover:text-accent"
+                }`}
+              >
+                Vision & Mission
+              </Link>
+
+              <Link
+                to="/industries"
+                className={`font-medium transition-colors duration-300 ${
+                  isActive("/industries")
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : showSolidNav
+                    ? "text-slate-700 hover:text-primary"
+                    : "text-white/90 hover:text-accent"
+                }`}
+              >
+                Industries
+              </Link>
             </div>
-
-            <Link
-              to="/vision-mission"
-              className={`font-medium transition-colors duration-300 hover:text-secondary ${
-                isActive("/vision-mission")
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : showSolidNav
-                  ? "text-slate-700"
-                  : "text-slate-850 lg:text-white/90"
-              }`}
-            >
-              Vision & Mission
-            </Link>
-
-            <Link
-              to="/industries"
-              className={`font-medium transition-colors duration-300 hover:text-secondary ${
-                isActive("/industries")
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : showSolidNav
-                  ? "text-slate-700"
-                  : "text-slate-850 lg:text-white/90"
-              }`}
-            >
-              Industries
-            </Link>
-
-            <Link
-              to="/contact"
-              className={`px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
-                showSolidNav
-                  ? "bg-primary text-white hover:bg-primary-light"
-                  : "bg-white text-primary hover:bg-slate-100 shadow-md"
-              }`}
-            >
-              Contact Us
-            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg focus:outline-none ${
-                showSolidNav ? "text-slate-800" : "text-white"
-              }`}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+          {/* Right Side: Contact Button & Mobile menu toggle */}
+          <div className="flex items-center space-x-6">
+            <div className="hidden lg:block">
+              <Link
+                to="/contact"
+                className={`px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
+                  showSolidNav
+                    ? "bg-primary text-white hover:bg-primary-light"
+                    : "bg-white text-primary hover:bg-slate-100 shadow-md"
+                }`}
+              >
+                Contact Us
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`p-2 rounded-lg focus:outline-none ${
+                  showSolidNav ? "text-slate-800" : "text-white"
+                }`}
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
 
         </div>
