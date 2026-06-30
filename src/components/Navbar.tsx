@@ -6,25 +6,10 @@ import { servicesData } from "../data/servicesData";
 import logoImg from "../assets/logo.jpg";
 
 export const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const location = useLocation();
-
-  // Handle scroll event to toggle background style
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Close menus on path change
   useEffect(() => {
@@ -38,16 +23,9 @@ export const Navbar: React.FC = () => {
     return location.pathname.startsWith(path);
   };
 
-  const isHomePage = location.pathname === "/";
-  const showSolidNav = isScrolled || !isHomePage;
-
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        showSolidNav
-          ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md py-4"
-          : "bg-transparent py-6"
-      }`}
+      className="fixed top-0 left-0 w-full z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm border-b border-slate-100 py-4 transition-all duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between w-full">
@@ -67,14 +45,10 @@ export const Navbar: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className={`font-heading font-extrabold text-lg leading-tight tracking-tight ${
-                  showSolidNav ? "text-slate-900" : "text-slate-900 lg:text-white"
-                }`}>
+                <span className="font-heading font-extrabold text-lg leading-tight tracking-tight text-slate-900 dark:text-white">
                   KRR Innovations
                 </span>
-                <span className={`font-sans text-[10px] uppercase font-bold tracking-widest ${
-                  showSolidNav ? "text-primary" : "text-primary lg:text-accent"
-                }`}>
+                <span className="font-sans text-[10px] uppercase font-bold tracking-widest text-primary dark:text-accent">
                   Pvt. Ltd.
                 </span>
               </div>
@@ -84,12 +58,10 @@ export const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-8">
               <Link
                 to="/"
-                className={`font-medium transition-colors duration-300 ${
+                className={`font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/")
                     ? "text-primary border-b-2 border-primary pb-1"
-                    : showSolidNav
-                    ? "text-slate-700 hover:text-primary"
-                    : "text-white/90 hover:text-accent"
+                    : "text-slate-700 dark:text-slate-300"
                 }`}
               >
                 Home
@@ -97,12 +69,10 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/about"
-                className={`font-medium transition-colors duration-300 ${
+                className={`font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/about")
                     ? "text-primary border-b-2 border-primary pb-1"
-                    : showSolidNav
-                    ? "text-slate-700 hover:text-primary"
-                    : "text-white/90 hover:text-accent"
+                    : "text-slate-700 dark:text-slate-300"
                 }`}
               >
                 About
@@ -115,12 +85,10 @@ export const Navbar: React.FC = () => {
                 onMouseLeave={() => setIsServicesDropdownOpen(false)}
               >
                 <button
-                  className={`flex items-center space-x-1 font-medium transition-colors duration-300 focus:outline-none py-2 ${
+                  className={`flex items-center space-x-1 font-medium transition-colors duration-300 hover:text-primary focus:outline-none py-2 ${
                     location.pathname.startsWith("/services")
                       ? "text-primary border-b-2 border-primary pb-1"
-                      : showSolidNav
-                      ? "text-slate-700 hover:text-primary"
-                      : "text-white/90 hover:text-accent"
+                      : "text-slate-700 dark:text-slate-300"
                   }`}
                 >
                   <span>Services</span>
@@ -157,12 +125,10 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/vision-mission"
-                className={`font-medium transition-colors duration-300 ${
+                className={`font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/vision-mission")
                     ? "text-primary border-b-2 border-primary pb-1"
-                    : showSolidNav
-                    ? "text-slate-700 hover:text-primary"
-                    : "text-white/90 hover:text-accent"
+                    : "text-slate-700 dark:text-slate-300"
                 }`}
               >
                 Vision & Mission
@@ -170,12 +136,10 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/industries"
-                className={`font-medium transition-colors duration-300 ${
+                className={`font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/industries")
                     ? "text-primary border-b-2 border-primary pb-1"
-                    : showSolidNav
-                    ? "text-slate-700 hover:text-primary"
-                    : "text-white/90 hover:text-accent"
+                    : "text-slate-700 dark:text-slate-300"
                 }`}
               >
                 Industries
@@ -188,11 +152,7 @@ export const Navbar: React.FC = () => {
             <div className="hidden lg:block">
               <Link
                 to="/contact"
-                className={`px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
-                  showSolidNav
-                    ? "bg-primary text-white hover:bg-primary-light"
-                    : "bg-white text-primary hover:bg-slate-100 shadow-md"
-                }`}
+                className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 bg-primary text-white hover:bg-primary-light shadow-sm"
               >
                 Contact Us
               </Link>
@@ -202,9 +162,7 @@ export const Navbar: React.FC = () => {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`p-2 rounded-lg focus:outline-none ${
-                  showSolidNav ? "text-slate-800" : "text-white"
-                }`}
+                className="p-2 rounded-lg focus:outline-none text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
