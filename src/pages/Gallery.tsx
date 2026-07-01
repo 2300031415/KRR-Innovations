@@ -18,7 +18,7 @@ export const Gallery: React.FC = () => {
     { src: "/pptx_images/slide_1_img_1_1.jpg", category: "Corporate", caption: "Corporate Collaboration Session" },
     { src: "/pptx_images/slide_1_img_2_2.jpg", category: "Corporate", caption: "Leadership Meeting" },
     { src: "/pptx_images/slide_1_img_3_3.jpg", category: "Corporate", caption: "Strategic Team Building" },
-    { src: "/pptx_images/slide_3_img_1_14.jpg", category: "Events", caption: "Siri MSME Industrial Expo & Fairs" },
+    { src: "/pptx_images/slide_3_img_1_14.jpg", category: "Events", caption: "MSME Industrial Expo & Fairs" },
     { src: "/pptx_images/slide_3_img_2_15.jpg", category: "Events", caption: "Business Networking Meetup" },
     { src: "/pptx_images/slide_3_img_3_16.jpg", category: "Events", caption: "Startup Pitch & Mentoring Day" },
     { src: "/pptx_images/slide_5_img_0_34.jpg", category: "Training", caption: "Skill Development Training Bootcamp" },
