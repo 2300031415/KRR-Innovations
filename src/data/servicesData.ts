@@ -18,6 +18,7 @@ export const servicesData: ServiceDetail[] = [
     description: "Secure your creations, build brand value, and establish market monopoly with our comprehensive trademark, patent, copyright, and design registration services.",
     iconName: "ShieldAlert",
     path: "/services/ipr",
+    imageUrl: "/images/ipr.jpg",
     tagline: "Protecting Your Inventions & Safeguarding Your Brand Equity",
     overview: "In today's highly competitive market, safeguarding intellectual property is vital for business success. KRR Innovations Pvt. Ltd. provides end-to-end IPR services ranging from initial search to final registration and protection. We bridge the gap between innovators, legal structures, and registration authorities.",
     features: [
@@ -119,6 +120,7 @@ export const servicesData: ServiceDetail[] = [
     description: "Nurturing the next generation of innovators. Professional training in entrepreneurship, leadership, digital skills, and startup mentoring.",
     iconName: "GraduationCap",
     path: "/services/training",
+    imageUrl: "/images/training.png",
     tagline: "Empowering Students, Professionals & Leaders for the Future Economy",
     overview: "Continuous learning and professional skill enhancement are critical in the face of rapid technological advances. Our skill development training programs are carefully designed to bridge the academic-industry gap and equip individuals with real-world skills.",
     features: [
