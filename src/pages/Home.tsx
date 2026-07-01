@@ -24,7 +24,7 @@ export const Home: React.FC = () => {
     const timer = setInterval(() => {
       setSlideDirection(1);
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 3000);
+    }, 5000); // 5 seconds interval
     return () => clearInterval(timer);
   }, []);
 
@@ -45,7 +45,7 @@ export const Home: React.FC = () => {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 500 : -500,
+      x: direction > 0 ? "100%" : "-100%",
       opacity: 0
     }),
     center: {
@@ -53,7 +53,7 @@ export const Home: React.FC = () => {
       opacity: 1
     },
     exit: (direction: number) => ({
-      x: direction > 0 ? -500 : 500,
+      x: direction > 0 ? "-100%" : "100%",
       opacity: 0
     })
   };
@@ -80,106 +80,63 @@ export const Home: React.FC = () => {
     <div className="relative">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 pb-20 bg-hero-gradient text-white overflow-hidden">
-        {/* Floating Abstract Shapes */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          {/* Floating Orb 1 */}
-          <motion.div
-            animate={{ 
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/4 left-1/10 w-64 h-64 bg-accent/20 rounded-full filter blur-3xl"
-          />
-          {/* Floating Orb 2 */}
-          <motion.div
-            animate={{ 
-              y: [0, 45, 0],
-              x: [0, -25, 0],
-              scale: [1, 0.9, 1]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-secondary/20 rounded-full filter blur-3xl"
-          />
-          {/* Floating Orb 3 */}
-          <motion.div
-            animate={{ 
-              rotate: 360,
-              scale: [1, 1.05, 1]
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full border border-white/5 border-dashed"
-          />
+      <section className="relative min-h-screen w-full bg-slate-950 text-white overflow-hidden flex items-center justify-center">
+        {/* Slide Images as Full-screen background */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <AnimatePresence initial={false} custom={slideDirection} mode="wait">
+            <motion.img
+              key={activeSlide}
+              src={heroSlides[activeSlide]}
+              custom={slideDirection}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.5 }
+              }}
+              className="w-full h-full object-cover object-center animate-fade-in"
+              alt={`KRR Innovations Slide ${activeSlide + 1}`}
+            />
+          </AnimatePresence>
+          {/* Visual Dark Overlay to ensure nav bar links are highly readable */}
+          <div className="absolute inset-0 bg-slate-950/20 z-10" />
         </div>
 
-        {/* Tech Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] z-0" />
+        {/* Left Control Arrow */}
+        <button
+          onClick={handlePrevSlide}
+          className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-slate-950/40 hover:bg-slate-950/80 text-white flex items-center justify-center border border-white/10 backdrop-blur-sm z-30 transition-all duration-300 focus:outline-none"
+        >
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 shadow-2xl backdrop-blur-md group/slider"
-          >
-            {/* Slide Images */}
-            <div className="absolute inset-0 w-full h-full">
-              <AnimatePresence initial={false} custom={slideDirection} mode="wait">
-                <motion.img
-                  key={activeSlide}
-                  src={heroSlides[activeSlide]}
-                  custom={slideDirection}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.35 }
-                  }}
-                  className="w-full h-full object-contain bg-slate-950"
-                  alt={`KRR Innovations Slide ${activeSlide + 1}`}
-                />
-              </AnimatePresence>
-            </div>
+        {/* Right Control Arrow */}
+        <button
+          onClick={handleNextSlide}
+          className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-slate-950/40 hover:bg-slate-950/80 text-white flex items-center justify-center border border-white/10 backdrop-blur-sm z-30 transition-all duration-300 focus:outline-none"
+        >
+          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
 
-            {/* Left Control Arrow */}
+        {/* Indicators Dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-3 z-30 py-2.5 px-5 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/10">
+          {heroSlides.map((_, idx) => (
             <button
-              onClick={handlePrevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/40 hover:bg-slate-900/80 text-white flex items-center justify-center border border-white/10 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-20 focus:outline-none"
-            >
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-
-            {/* Right Control Arrow */}
-            <button
-              onClick={handleNextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/40 hover:bg-slate-900/80 text-white flex items-center justify-center border border-white/10 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-20 focus:outline-none"
-            >
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-
-            {/* Indicators Dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center space-x-2.5 z-20 py-2 px-4 rounded-full bg-slate-900/40 backdrop-blur-md border border-white/5">
-              {heroSlides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleIndicatorClick(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
-                    idx === activeSlide 
-                      ? "bg-accent w-6" 
-                      : "bg-white/40 hover:bg-white/70"
-                  }`}
-                />
-              ))}
-            </div>
-          </motion.div>
+              key={idx}
+              onClick={() => handleIndicatorClick(idx)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${
+                idx === activeSlide 
+                  ? "bg-accent w-7" 
+                  : "bg-white/40 hover:bg-white/70"
+              }`}
+            />
+          ))}
         </div>
       </section>
 
