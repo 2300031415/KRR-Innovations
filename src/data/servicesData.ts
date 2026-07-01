@@ -9,6 +9,7 @@ export interface ServiceDetail {
   benefits: string[];
   process: { step: string; title: string; desc: string }[];
   faqs: { question: string; answer: string }[];
+  imageUrl?: string;
 }
 
 export const servicesData: ServiceDetail[] = [
@@ -50,6 +51,7 @@ export const servicesData: ServiceDetail[] = [
     description: "Accelerate your growth. We research, design, and manufacture IoT-enabled devices, smart farming tech, and build enterprise software and automation systems.",
     iconName: "Code2",
     path: "/services/technology",
+    imageUrl: "/images/technology.png",
     tagline: "Engineering IoT Systems, Smart Agriculture & Enterprise Software Solutions",
     overview: "KRR Innovations Pvt. Ltd. is legally chartered to carry on the business of researching, designing, developing, and manufacturing Internet of Things (IoT) devices, information & communication technology (ICT) enabled devices, and electrical equipment. We build systems to foster smart farming, modern agriculture, smart irrigation, and aqua farming, as well as digital tools for healthcare, home care, and process automation.",
     features: [
@@ -79,12 +81,13 @@ export const servicesData: ServiceDetail[] = [
     ]
   },
   {
-    title: "Siri Events",
+    title: "Event Management",
     description: "End-to-end management of industrial expos, MSME meets, business conferences, educational programs, and professional networking meetups.",
     iconName: "CalendarDays",
     path: "/services/events",
+    imageUrl: "/images/event_management.png",
     tagline: "Connecting Businesses, Fostering Innovation & Building Communities",
-    overview: "Siri Events is the premium events management division of KRR Innovations. We design and coordinate high-impact business conferences, expos, and startup summits that foster corporate partnerships, drive industry networking, and promote community growth.",
+    overview: "Event Management is the premium events management division of KRR Innovations. We design and coordinate high-impact business conferences, expos, and startup summits that foster corporate partnerships, drive industry networking, and promote community growth.",
     features: [
       "Industrial Expos & MSME Trade Fairs",
       "National & International Business Conferences",

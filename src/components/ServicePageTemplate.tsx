@@ -65,28 +65,36 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ servic
               </p>
             </motion.div>
 
-            {/* Decorative Callout widget */}
+            {/* Right Side Column: Service Image & Callout Widget */}
             <motion.div 
               initial={{ opacity: 0, x: 35 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-5 bg-slate-50 border border-slate-100 p-8 rounded-2xl shadow-inner relative"
+              className="lg:col-span-5 space-y-8 animate-fade-in"
             >
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/5 rounded-full filter blur-xl" />
-              <h3 className="font-heading font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-primary" />
-                Confidentiality Pledge
-              </h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                All client source code, design drafts, patent descriptions, and corporate files are managed under high security and watertight mutual NDAs. We protect your competitive advantages.
-              </p>
-              <Link to="/contact">
-                <Button variant="outline" size="sm" className="w-full flex items-center justify-center space-x-2">
-                  <span>Request NDA Template</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
+              {service.imageUrl && (
+                <div className="relative overflow-hidden rounded-2xl border border-slate-100 shadow-md aspect-[4/3] bg-slate-50">
+                  <img src={service.imageUrl} className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500" alt={service.title} />
+                </div>
+              )}
+
+              <div className="bg-slate-50 border border-slate-100 p-8 rounded-2xl shadow-inner relative overflow-hidden">
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/5 rounded-full filter blur-xl" />
+                <h3 className="font-heading font-bold text-slate-900 mb-4 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-primary" />
+                  Confidentiality Pledge
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                  All client source code, design drafts, patent descriptions, and corporate files are managed under high security and watertight mutual NDAs. We protect your competitive advantages.
+                </p>
+                <Link to="/contact">
+                  <Button variant="outline" size="sm" className="w-full flex items-center justify-center space-x-2">
+                    <span>Request NDA Template</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
 
           </div>

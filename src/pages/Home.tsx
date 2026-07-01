@@ -260,30 +260,45 @@ export const Home: React.FC = () => {
               <motion.div
                 key={service.path}
                 variants={fadeInUp}
-                className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 relative overflow-hidden"
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 relative overflow-hidden"
               >
-                {/* Accent glow corner */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-3xl -z-10 group-hover:from-primary/10 transition-colors" />
-                
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-350 shadow-inner">
-                    <LucideIcon name={service.iconName} size={24} />
+                {/* Visual card header image */}
+                <div className="h-44 w-full relative overflow-hidden bg-slate-50 border-b border-slate-100">
+                  {service.imageUrl ? (
+                    <img 
+                      src={service.imageUrl} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-50 flex items-center justify-center text-slate-400">
+                      <LucideIcon name={service.iconName} size={40} className="text-primary/20" />
+                    </div>
+                  )}
+                  {/* Category icon overlay */}
+                  <div className="absolute bottom-3 left-3 w-10 h-10 rounded-lg bg-white/95 backdrop-blur-sm text-primary flex items-center justify-center shadow-md">
+                    <LucideIcon name={service.iconName} size={20} />
                   </div>
-                  <h3 className="text-lg font-heading font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-4">
-                    {service.description}
-                  </p>
                 </div>
 
-                <Link 
-                  to={service.path}
-                  className="inline-flex items-center text-sm font-semibold text-primary group-hover:text-secondary space-x-1 hover:underline pt-2"
-                >
-                  <span>Learn More</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-heading font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-550 text-sm leading-relaxed mb-6 line-clamp-3">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <Link 
+                    to={service.path}
+                    className="inline-flex items-center text-sm font-semibold text-primary group-hover:text-secondary space-x-1 hover:underline pt-2"
+                  >
+                    <span>Learn More</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </motion.div>

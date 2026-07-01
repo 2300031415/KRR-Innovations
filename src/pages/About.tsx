@@ -78,7 +78,7 @@ export const About: React.FC = () => {
                 Who We Are & What We Stand For
               </h2>
               <p className="text-slate-650 leading-relaxed">
-                KRR Innovations Pvt. Ltd. is a multidimensional corporate advisory and software development company. We believe that modern commercial scaling requires a combination of robust legal foundations (IPR protection), advanced digital workflow architectures (Technology Consultancy), community platform strategies (Siri Events), and hands-on operational leadership (Skill Development Training).
+                KRR Innovations Pvt. Ltd. is a multidimensional corporate advisory and software development company. We believe that modern commercial scaling requires a combination of robust legal foundations (IPR protection), advanced digital workflow architectures (Technology Consultancy), community platform strategies (Event Management), and hands-on operational leadership (Skill Development Training).
               </p>
               <p className="text-slate-650 leading-relaxed">
                 Whether you are an aspiring student, a seed-stage startup, or an established manufacturing firm, our primary objective is to offer strategic end-to-end guidance. We bridge the critical gaps in product design, market deployment, legal compliances, and capital networks.

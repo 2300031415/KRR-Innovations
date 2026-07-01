@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { servicesData } from "../data/servicesData";
 import logoImg from "../assets/logo.jpg";
+import LucideIcon from "./LucideIcon";
 
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -108,14 +109,29 @@ export const Navbar: React.FC = () => {
                         <Link
                           key={service.path}
                           to={service.path}
-                          className="block px-6 py-3 hover:bg-slate-50 transition-colors duration-200 group"
+                          className="block px-5 py-2.5 hover:bg-slate-50 transition-colors duration-200 group"
                         >
-                          <p className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors duration-150">
-                            {service.title}
-                          </p>
-                          <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
-                            {service.description}
-                          </p>
+                          <div className="flex items-center space-x-3">
+                            {service.imageUrl ? (
+                              <img 
+                                src={service.imageUrl} 
+                                alt={service.title}
+                                className="w-8 h-8 rounded-lg object-cover shrink-0 border border-slate-100 shadow-sm"
+                              />
+                            ) : (
+                              <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                                <LucideIcon name={service.iconName} size={16} />
+                              </div>
+                            )}
+                            <div className="min-w-0 flex-1">
+                              <p className="text-sm font-semibold text-slate-800 group-hover:text-primary transition-colors duration-150 truncate">
+                                {service.title}
+                              </p>
+                              <p className="text-xs text-slate-550 line-clamp-1 mt-0.5">
+                                {service.description}
+                              </p>
+                            </div>
+                          </div>
                         </Link>
                       ))}
                     </motion.div>
@@ -246,15 +262,20 @@ export const Navbar: React.FC = () => {
                           exit={{ height: 0, opacity: 0 }}
                           className="pl-4 mt-2 space-y-3 border-l border-slate-100 overflow-hidden"
                         >
-                          {servicesData.map((service) => (
-                            <Link
-                              key={service.path}
-                              to={service.path}
-                              className="block py-1 text-sm text-slate-600 hover:text-primary font-medium"
-                            >
-                              {service.title}
-                            </Link>
-                          ))}
+                           {servicesData.map((service) => (
+                             <Link
+                               key={service.path}
+                               to={service.path}
+                               className="flex items-center space-x-3 py-1.5 text-sm text-slate-600 hover:text-primary font-medium"
+                             >
+                               {service.imageUrl ? (
+                                 <img src={service.imageUrl} className="w-6 h-6 rounded object-cover border border-slate-100" alt="" />
+                               ) : (
+                                 <LucideIcon name={service.iconName} className="w-5 h-5 text-slate-400" />
+                               )}
+                               <span>{service.title}</span>
+                             </Link>
+                           ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
