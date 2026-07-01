@@ -5,6 +5,7 @@ import PageBanner from "../components/PageBanner";
 import { timelineData, valuesData, statsData } from "../data/companyData";
 import LucideIcon from "../components/LucideIcon";
 import CTA from "../components/CTA";
+import BackgroundVideo from "../components/BackgroundVideo";
 
 export const About: React.FC = () => {
 
@@ -35,8 +36,9 @@ export const About: React.FC = () => {
       />
 
       {/* 1. INTRODUCTION SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-transparent relative overflow-hidden text-white">
+        <BackgroundVideo opacity={0.9} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Graphic/Visual Block */}
@@ -71,29 +73,29 @@ export const About: React.FC = () => {
 
             {/* Content block */}
             <motion.div {...fadeInUp} className="space-y-6">
-              <span className="text-xs uppercase tracking-widest font-extrabold text-secondary">
+              <span className="text-xs uppercase tracking-widest font-extrabold text-accent">
                 Company Overview
               </span>
-              <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white leading-tight">
                 Who We Are & What We Stand For
               </h2>
-              <p className="text-slate-650 leading-relaxed">
+              <p className="text-slate-300 leading-relaxed">
                 KRR Innovations Pvt. Ltd. is a multidimensional corporate advisory and software development company. We believe that modern commercial scaling requires a combination of robust legal foundations (IPR protection), advanced digital workflow architectures (Technology Consultancy), community platform strategies (Event Management), and hands-on operational leadership (Skill Development Training).
               </p>
-              <p className="text-slate-650 leading-relaxed">
+              <p className="text-slate-300 leading-relaxed">
                 Whether you are an aspiring student, a seed-stage startup, or an established manufacturing firm, our primary objective is to offer strategic end-to-end guidance. We bridge the critical gaps in product design, market deployment, legal compliances, and capital networks.
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="flex items-center space-x-3 text-slate-700">
+                <div className="flex items-center space-x-3 text-slate-200">
                   <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                   <span className="font-medium text-sm sm:text-base">Comprehensive legal filing advisory (Patents, Trademarks)</span>
                 </div>
-                <div className="flex items-center space-x-3 text-slate-700">
+                <div className="flex items-center space-x-3 text-slate-200">
                   <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                   <span className="font-medium text-sm sm:text-base">Full-stack software application design & digital scaling</span>
                 </div>
-                <div className="flex items-center space-x-3 text-slate-700">
+                <div className="flex items-center space-x-3 text-slate-200">
                   <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                   <span className="font-medium text-sm sm:text-base">Robust training curricula bridging theoretical-practical splits</span>
                 </div>
@@ -126,16 +128,17 @@ export const About: React.FC = () => {
       </section>
 
       {/* 3. CORE VALUES SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-transparent relative overflow-hidden text-white">
+        <BackgroundVideo opacity={0.9} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs uppercase tracking-widest font-extrabold text-secondary">
+            <span className="text-xs uppercase tracking-widest font-extrabold text-accent">
               Our Principles
             </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 mt-2">
+            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-2">
               Our Core Values
             </h2>
-            <p className="text-slate-600 mt-4 text-sm sm:text-base">
+            <p className="text-slate-300 mt-4 text-sm sm:text-base">
               These six pillars govern every project discovery, technology stack evaluation, event deployment, and client collaboration we undertake.
             </p>
           </div>
@@ -151,15 +154,15 @@ export const About: React.FC = () => {
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md hover:bg-white hover:border-primary/20 transition-all duration-300"
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-xl bg-secondary/20 text-accent flex items-center justify-center mb-6">
                   <LucideIcon name={val.iconName} size={24} />
                 </div>
-                <h3 className="text-lg font-heading font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-heading font-bold text-white mb-2">
                   {val.title}
                 </h3>
-                <p className="text-slate-650 text-sm leading-relaxed">
+                <p className="text-slate-400 text-sm leading-relaxed">
                   {val.description}
                 </p>
               </motion.div>

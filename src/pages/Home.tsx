@@ -8,6 +8,7 @@ import LucideIcon from "../components/LucideIcon";
 import Button from "../components/Button";
 import CTA from "../components/CTA";
 import AnimatedCounter from "../components/AnimatedCounter";
+import BackgroundVideo from "../components/BackgroundVideo";
 
 export const Home: React.FC = () => {
   const heroSlides = [
@@ -80,7 +81,7 @@ export const Home: React.FC = () => {
     <div className="relative">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen w-full bg-slate-950 text-white overflow-hidden flex items-center justify-center">
+      <section className="relative min-h-screen w-full bg-hero-gradient text-white overflow-hidden flex items-center justify-center">
         {/* Slide Images as Full-screen background */}
         <div className="absolute inset-0 w-full h-full z-0">
           <AnimatePresence initial={false} custom={slideDirection} mode="wait">
@@ -101,8 +102,44 @@ export const Home: React.FC = () => {
             />
           </AnimatePresence>
           {/* Visual Dark Overlay to ensure nav bar links are highly readable */}
-          <div className="absolute inset-0 bg-slate-950/20 z-10" />
+          <div className="absolute inset-0 bg-slate-950/30 z-10" />
         </div>
+
+        {/* Floating Animated Tech Shapes & Orbs */}
+        <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+          {/* Floating Orb 1 */}
+          <motion.div
+            animate={{ 
+              y: [0, -30, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/4 left-1/10 w-64 h-64 bg-accent/25 rounded-full filter blur-3xl"
+          />
+          {/* Floating Orb 2 */}
+          <motion.div
+            animate={{ 
+              y: [0, 45, 0],
+              x: [0, -25, 0],
+              scale: [1, 0.9, 1]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-secondary/25 rounded-full filter blur-3xl"
+          />
+          {/* Floating Orb 3 */}
+          <motion.div
+            animate={{ 
+              rotate: 360,
+              scale: [1, 1.05, 1]
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full border border-white/10 border-dashed"
+          />
+        </div>
+
+        {/* Tech Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] z-15 pointer-events-none" />
 
         {/* Left Control Arrow */}
         <button
@@ -141,42 +178,43 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. ABOUT PREVIEW SECTION */}
-      <section className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-transparent relative overflow-hidden text-white">
+        <BackgroundVideo opacity={0.9} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left side text info */}
             <motion.div {...fadeInUp} className="space-y-6">
-              <span className="text-xs uppercase tracking-widest font-extrabold text-primary">
+              <span className="text-xs uppercase tracking-widest font-extrabold text-accent">
                 Who We Are
               </span>
-              <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white leading-tight">
                 Driving Next-Generation Innovation & Technology Strategies
               </h2>
-              <p className="text-slate-600 leading-relaxed text-base">
+              <p className="text-slate-300 leading-relaxed text-base">
                 KRR Innovations Pvt. Ltd. is a premium consulting partner dedicated to nurturing commercial concepts, creating scalable software platforms, and safeguarding creative ideas. We deliver cohesive models spanning across legal IPR filings, business automation, skill training academies, and industrial meetups.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-slate-950">Innovation Driven</h4>
-                    <p className="text-xs text-slate-500">Developing solutions with modern tech & strategies.</p>
+                    <h4 className="font-semibold text-white">Innovation Driven</h4>
+                    <p className="text-xs text-slate-400">Developing solutions with modern tech & strategies.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle2 className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-slate-950">Trusted Business Partner</h4>
-                    <p className="text-xs text-slate-500">Providing confidentiality and ongoing compliance.</p>
+                    <h4 className="font-semibold text-white">Trusted Business Partner</h4>
+                    <p className="text-xs text-slate-400">Providing confidentiality and ongoing compliance.</p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-6">
                 <Link to="/about">
-                  <Button variant="primary" size="md">
+                  <Button variant="accent" size="md">
                     Read More About Us
                   </Button>
                 </Link>
@@ -193,53 +231,53 @@ export const Home: React.FC = () => {
             >
               <motion.div 
                 variants={fadeInUp} 
-                className="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
+                className="bg-white/5 p-8 rounded-2xl border border-white/10 shadow-sm flex flex-col justify-between hover:bg-white/10 hover:border-accent/40 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-accent mb-6">
                   <LucideIcon name="Layers" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-4xl font-heading font-extrabold text-slate-900">50+</h3>
-                  <p className="text-sm font-semibold text-slate-500 mt-1">Successful Projects</p>
+                  <h3 className="text-4xl font-heading font-extrabold text-white">50+</h3>
+                  <p className="text-sm font-semibold text-slate-400 mt-1">Successful Projects</p>
                 </div>
               </motion.div>
 
               <motion.div 
                 variants={fadeInUp} 
-                className="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow mt-6 lg:mt-12"
+                className="bg-white/5 p-8 rounded-2xl border border-white/10 shadow-sm flex flex-col justify-between hover:bg-white/10 hover:border-accent/40 hover:shadow-md transition-all duration-300 mt-6 lg:mt-12"
               >
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary mb-6">
+                <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary mb-6">
                   <LucideIcon name="Smile" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-4xl font-heading font-extrabold text-slate-900">100%</h3>
-                  <p className="text-sm font-semibold text-slate-500 mt-1">Client Satisfaction</p>
+                  <h3 className="text-4xl font-heading font-extrabold text-white">100%</h3>
+                  <p className="text-sm font-semibold text-slate-400 mt-1">Client Satisfaction</p>
                 </div>
               </motion.div>
 
               <motion.div 
                 variants={fadeInUp} 
-                className="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow -mt-6 lg:-mt-6"
+                className="bg-white/5 p-8 rounded-2xl border border-white/10 shadow-sm flex flex-col justify-between hover:bg-white/10 hover:border-accent/40 hover:shadow-md transition-all duration-300 -mt-6 lg:-mt-6"
               >
-                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center text-primary mb-6">
+                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center text-accent mb-6">
                   <LucideIcon name="Cpu" size={24} />
                 </div>
                 <div>
-                  <span className="text-xl font-heading font-extrabold text-slate-900 leading-none">Innovation</span>
-                  <p className="text-sm font-semibold text-slate-500 mt-1">Driven Process</p>
+                  <span className="text-xl font-heading font-extrabold text-white leading-none">Innovation</span>
+                  <p className="text-sm font-semibold text-slate-400 mt-1">Driven Process</p>
                 </div>
               </motion.div>
 
               <motion.div 
                 variants={fadeInUp} 
-                className="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow mt-0 lg:mt-6"
+                className="bg-white/5 p-8 rounded-2xl border border-white/10 shadow-sm flex flex-col justify-between hover:bg-white/10 hover:border-accent/40 hover:shadow-md transition-all duration-300 mt-0 lg:mt-6"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-accent mb-6">
                   <LucideIcon name="Briefcase" size={24} />
                 </div>
                 <div>
-                  <span className="text-xl font-heading font-extrabold text-slate-900 leading-none">Trusted</span>
-                  <p className="text-sm font-semibold text-slate-500 mt-1">Partner Support</p>
+                  <span className="text-xl font-heading font-extrabold text-white leading-none">Trusted</span>
+                  <p className="text-sm font-semibold text-slate-400 mt-1">Partner Support</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -322,17 +360,18 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 4. WHY CHOOSE US SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-transparent relative overflow-hidden text-white">
+        <BackgroundVideo opacity={0.9} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs uppercase tracking-widest font-extrabold text-secondary">
+            <span className="text-xs uppercase tracking-widest font-extrabold text-accent">
               Strategic Advantages
             </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 mt-2">
+            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-2">
               Why KRR Innovations?
             </h2>
-            <p className="text-slate-650 mt-4 leading-relaxed">
+            <p className="text-slate-300 mt-4 leading-relaxed">
               We leverage an ecosystem of technological capability, legal experts, and deep mentor connections to ensure your business grows on solid parameters.
             </p>
           </div>
@@ -348,15 +387,15 @@ export const Home: React.FC = () => {
               <motion.div
                 key={idx}
                 variants={fadeInUp}
-                className="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-lg transition-all duration-300"
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-secondary/20 text-accent flex items-center justify-center mb-4">
                   <LucideIcon name={feat.iconName} size={20} />
                 </div>
-                <h4 className="font-heading font-bold text-slate-900 mb-2">
+                <h4 className="font-heading font-bold text-white mb-2">
                   {feat.title}
                 </h4>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                   {feat.description}
                 </p>
               </motion.div>

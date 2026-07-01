@@ -31,7 +31,7 @@ export const CTA: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
             Ready to Build Your Success Story?
           </h2>
-          <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-slate-350 leading-relaxed">
+          <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed">
             Let's work together to transform your innovative ideas into proprietary systems, scalable digital applications, and high-impact corporate programs.
           </p>
 

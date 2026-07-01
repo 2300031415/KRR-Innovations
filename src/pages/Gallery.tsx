@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageBanner from "../components/PageBanner";
 import CTA from "../components/CTA";
+import BackgroundVideo from "../components/BackgroundVideo";
 
 export const Gallery: React.FC = () => {
   const [loadImages, setLoadImages] = useState(false);
@@ -37,8 +38,9 @@ export const Gallery: React.FC = () => {
       />
 
       {/* Gallery Grid Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-transparent relative overflow-hidden text-white">
+        <BackgroundVideo opacity={0.9} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Image grid */}
           <motion.div 
@@ -54,9 +56,9 @@ export const Gallery: React.FC = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4 }}
                   key={img.src}
-                  className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-sm aspect-square flex flex-col justify-between"
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm aspect-square flex flex-col justify-between"
                 >
-                  <div className="w-full h-full overflow-hidden bg-slate-150">
+                  <div className="w-full h-full overflow-hidden bg-white/10">
                     {loadImages ? (
                       <img 
                         src={img.src} 

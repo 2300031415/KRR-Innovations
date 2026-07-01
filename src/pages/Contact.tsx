@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import PageBanner from "../components/PageBanner";
 import ContactForm from "../components/ContactForm";
+import BackgroundVideo from "../components/BackgroundVideo";
 
 // Inline SVG social icons for reliability
 const FacebookIcon = ({ size = 18 }: { size?: number }) => (
@@ -74,11 +75,11 @@ export const Contact: React.FC = () => {
       />
 
       {/* Contact Details & Form */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-transparent relative overflow-hidden text-white">
+        <BackgroundVideo opacity={0.9} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
-            {/* Left Side: Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -87,13 +88,13 @@ export const Contact: React.FC = () => {
               className="lg:col-span-5 space-y-8"
             >
               <div className="space-y-4">
-                <span className="text-xs uppercase tracking-widest font-extrabold text-secondary">
+                <span className="text-xs uppercase tracking-widest font-extrabold text-accent">
                   Get In Touch
                 </span>
-                <h2 className="text-3xl font-heading font-extrabold text-slate-900 leading-tight">
+                <h2 className="text-3xl font-heading font-extrabold text-white leading-tight">
                   Let's Discuss Your Next Innovation
                 </h2>
-                <p className="text-slate-650 leading-relaxed text-sm sm:text-base">
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
                   We look forward to answering your questions. Fill in the form or call us to set up an initial consultation on trademark viability, software development costs, or training programs.
                 </p>
               </div>
@@ -101,16 +102,16 @@ export const Contact: React.FC = () => {
               {/* Contact Card items */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 pt-4">
                 {contactDetails.map((detail, idx) => (
-                  <div key={idx} className="flex items-start space-x-4 bg-slate-50 p-5 rounded-xl border border-slate-100">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <div key={idx} className="flex items-start space-x-4 bg-white/5 p-5 rounded-xl border border-white/10">
+                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0 text-accent">
                       {detail.icon}
                     </div>
                     <div>
-                      <h4 className="font-heading font-bold text-slate-900 text-sm sm:text-base mb-1">
+                      <h4 className="font-heading font-bold text-white text-sm sm:text-base mb-1">
                         {detail.title}
                       </h4>
                       {detail.lines.map((line, lIdx) => (
-                        <p key={lIdx} className="text-slate-500 text-xs sm:text-sm">
+                        <p key={lIdx} className="text-slate-400 text-xs sm:text-sm">
                           {line}
                         </p>
                       ))}
@@ -121,23 +122,23 @@ export const Contact: React.FC = () => {
 
               {/* Social details */}
               <div className="space-y-3 pt-4">
-                <h4 className="font-heading font-bold text-slate-900 text-sm">
+                <h4 className="font-heading font-bold text-white text-sm">
                   Follow Our Social Updates
                 </h4>
                 <div className="flex items-center space-x-3">
-                  <a href="https://facebook.com/profile.php?id=61576763954098" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
+                  <a href="https://facebook.com/profile.php?id=61576763954098" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-all duration-300">
                     <FacebookIcon size={18} />
                   </a>
-                  <a href="https://youtube.com/channel/UCFahv_DZ-sQRe21itRCNaoA" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
+                  <a href="https://youtube.com/channel/UCFahv_DZ-sQRe21itRCNaoA" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-all duration-300">
                     <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                       <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                     </svg>
                   </a>
-                  <a href="https://linkedin.com/in/krr-innovations-private-limited-781429396" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
+                  <a href="https://linkedin.com/in/krr-innovations-private-limited-781429396" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-all duration-300">
                     <LinkedinIcon size={18} />
                   </a>
-                  <a href="https://instagram.com/krr_innovations_pvt_ltd" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300">
+                  <a href="https://instagram.com/krr_innovations_pvt_ltd" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-all duration-300">
                     <InstagramIcon size={18} />
                   </a>
                 </div>
