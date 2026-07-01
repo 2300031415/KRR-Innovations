@@ -144,6 +144,17 @@ export const Navbar: React.FC = () => {
               >
                 Industries
               </Link>
+
+              <Link
+                to="/gallery"
+                className={`font-medium transition-colors duration-300 hover:text-primary ${
+                  isActive("/gallery")
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : "text-slate-700 dark:text-slate-300"
+                }`}
+              >
+                Gallery
+              </Link>
             </div>
           </div>
 
@@ -261,6 +272,13 @@ export const Navbar: React.FC = () => {
                     className={`font-semibold text-lg py-1 ${isActive("/industries") ? "text-primary" : "text-slate-700"}`}
                   >
                     Industries
+                  </Link>
+
+                  <Link
+                    to="/gallery"
+                    className={`font-semibold text-lg py-1 ${isActive("/gallery") ? "text-primary" : "text-slate-700"}`}
+                  >
+                    Gallery
                   </Link>
                 </div>
               </div>

@@ -7,6 +7,7 @@ import About from "./pages/About";
 import VisionMission from "./pages/VisionMission";
 import Industries from "./pages/Industries";
 import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
 import Ipr from "./pages/services/Ipr";
 import Technology from "./pages/services/Technology";
 import Events from "./pages/services/Events";
@@ -32,6 +33,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="vision-mission" element={<VisionMission />} />
             <Route path="industries" element={<Industries />} />
+            <Route path="gallery" element={<Gallery />} />
             <Route path="contact" element={<Contact />} />
             <Route path="services/ipr" element={<Ipr />} />
             <Route path="services/technology" element={<Technology />} />
