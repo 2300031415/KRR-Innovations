@@ -34,22 +34,22 @@ export const Navbar: React.FC = () => {
           {/* Left Side: Logo & Main Navigation Links */}
           <div className="flex items-center space-x-12">
             {/* Logo & Company Name */}
-            <Link to="/" className="flex items-center space-x-3.5 group">
-              <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-primary to-secondary p-[2px] shadow-md shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
-                <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[10px] flex items-center justify-center overflow-hidden">
+            <Link to="/" className="flex items-center space-x-4 group">
+              <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-tr from-primary to-secondary p-[2px] shadow-md shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[14px] flex items-center justify-center overflow-hidden">
                   <img src={logoImg} className="w-full h-full object-cover scale-95 group-hover:scale-100 transition-transform duration-300" alt="KRR Innovations Logo" />
                 </div>
                 <motion.div 
-                  className="absolute inset-0 rounded-xl bg-gradient-to-tr from-primary to-secondary -z-10 blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary to-secondary -z-10 blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-heading font-black text-xl leading-none tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:from-secondary group-hover:via-accent group-hover:to-primary transition-all duration-500">
+                <span className="font-heading font-black text-2xl tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:from-secondary group-hover:via-accent group-hover:to-primary transition-all duration-500">
                   KRR Innovations
                 </span>
-                <span className="font-sans text-[9px] uppercase font-extrabold tracking-widest text-slate-500 mt-1 dark:text-slate-400 group-hover:text-primary transition-colors duration-300">
+                <span className="font-sans text-[10px] uppercase font-black tracking-[0.25em] text-slate-500 mt-1 dark:text-slate-400 group-hover:text-primary transition-colors duration-300">
                   Pvt. Ltd.
                 </span>
               </div>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { servicesData } from "../data/servicesData";
 import { featuresData, statsData } from "../data/companyData";
-import { industriesData } from "../data/industriesData";
 import LucideIcon from "../components/LucideIcon";
 import Button from "../components/Button";
 import CTA from "../components/CTA";
@@ -351,52 +350,6 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. INDUSTRIES WE SERVE SECTION */}
-      <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
-        {/* Glow Spheres */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full filter blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs uppercase tracking-widest font-extrabold text-accent">
-              Ecosystem
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-2">
-              Industries We Serve
-            </h2>
-            <p className="text-slate-400 mt-4 leading-relaxed">
-              Our multidisciplinary approach allows us to deliver specialized intellectual property strategy, technological systems, and corporate advisory across a wide range of industries.
-            </p>
-          </div>
-
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6"
-          >
-            {industriesData.map((ind, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/40 transition-all duration-300 flex flex-col items-center text-center group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white/10 text-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <LucideIcon name={ind.iconName} size={22} />
-                </div>
-                <h4 className="font-heading font-bold text-sm sm:text-base text-white">
-                  {ind.name}
-                </h4>
-              </motion.div>
-            ))}
-          </motion.div>
-
-
-        </div>
-      </section>
 
       {/* 6. ACHIEVEMENTS SECTION (Animated Counter) */}
       <section className="py-20 bg-primary text-white relative">
