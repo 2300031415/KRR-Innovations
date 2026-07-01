@@ -5,7 +5,6 @@ import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import VisionMission from "./pages/VisionMission";
-import Industries from "./pages/Industries";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import Ipr from "./pages/services/Ipr";
@@ -32,7 +31,6 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="vision-mission" element={<VisionMission />} />
-            <Route path="industries" element={<Industries />} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="contact" element={<Contact />} />
             <Route path="services/ipr" element={<Ipr />} />
