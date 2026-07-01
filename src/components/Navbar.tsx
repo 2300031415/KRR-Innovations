@@ -49,7 +49,7 @@ export const Navbar: React.FC = () => {
                 <span className="font-heading font-black text-2xl tracking-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent group-hover:from-secondary group-hover:via-accent group-hover:to-primary transition-all duration-500">
                   KRR Innovations
                 </span>
-                <span className="font-sans text-[10px] uppercase font-black tracking-[0.25em] text-slate-500 mt-1 dark:text-slate-400 group-hover:text-primary transition-colors duration-300">
+                <span className="font-sans text-[10px] uppercase font-black tracking-[0.25em] text-slate-500 -mt-1.5 dark:text-slate-400 group-hover:text-primary transition-colors duration-300">
                   Pvt. Ltd.
                 </span>
               </div>

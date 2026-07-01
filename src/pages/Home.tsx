@@ -28,21 +28,6 @@ export const Home: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleNextSlide = () => {
-    setSlideDirection(1);
-    setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-  };
-
-  const handlePrevSlide = () => {
-    setSlideDirection(-1);
-    setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  };
-
-  const handleIndicatorClick = (idx: number) => {
-    setSlideDirection(idx > activeSlide ? 1 : -1);
-    setActiveSlide(idx);
-  };
-
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? "100%" : "-100%",
@@ -80,9 +65,41 @@ export const Home: React.FC = () => {
     <div className="relative">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen w-full bg-slate-950 text-white overflow-hidden flex items-center justify-center">
-        {/* Slide Images as Full-screen background */}
-        <div className="absolute inset-0 w-full h-full z-0">
+      <section className="relative min-h-screen w-full bg-[#0b0b24] text-white overflow-hidden grid grid-cols-1 lg:grid-cols-2 pt-20 lg:pt-0">
+        
+        {/* Left Side: Hero Text content */}
+        <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-20 lg:py-0 space-y-8 z-10 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white leading-tight">
+              Transforming Ideas into <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Innovation, Growth & Success</span>
+            </h1>
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
+              Empowering Entrepreneurs, Startups, Businesses, Students, Professionals and Institutions through Innovation, Technology, Intellectual Property, Professional Development and Strategic Consulting.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-wrap gap-4 pt-2"
+          >
+            <Link to="/services">
+              <Button variant="primary" size="lg">Explore Services</Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="outlineWhite" size="lg">Contact Us</Button>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Auto slideshow of images */}
+        <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5">
           <AnimatePresence initial={false} custom={slideDirection} mode="wait">
             <motion.img
               key={activeSlide}
@@ -96,47 +113,13 @@ export const Home: React.FC = () => {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.5 }
               }}
-              className="w-full h-full object-cover object-center animate-fade-in"
+              className="w-full h-full object-cover object-center"
               alt={`KRR Innovations Slide ${activeSlide + 1}`}
             />
           </AnimatePresence>
-          {/* Visual Dark Overlay to ensure nav bar links are highly readable */}
-          <div className="absolute inset-0 bg-slate-950/20 z-10" />
-        </div>
-
-        {/* Left Control Arrow */}
-        <button
-          onClick={handlePrevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-slate-950/40 hover:bg-slate-950/80 text-white flex items-center justify-center border border-white/10 backdrop-blur-sm z-30 transition-all duration-300 focus:outline-none"
-        >
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-
-        {/* Right Control Arrow */}
-        <button
-          onClick={handleNextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-slate-950/40 hover:bg-slate-950/80 text-white flex items-center justify-center border border-white/10 backdrop-blur-sm z-30 transition-all duration-300 focus:outline-none"
-        >
-          <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-
-        {/* Indicators Dots */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center space-x-3 z-30 py-2.5 px-5 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/10">
-          {heroSlides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => handleIndicatorClick(idx)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${
-                idx === activeSlide 
-                  ? "bg-accent w-7" 
-                  : "bg-white/40 hover:bg-white/70"
-              }`}
-            />
-          ))}
+          {/* Subtle gradient overlay to blend into the left navy background on large screens */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0b24] to-transparent z-10" />
+          <div className="absolute inset-0 bg-slate-950/10 z-10" />
         </div>
       </section>
 
