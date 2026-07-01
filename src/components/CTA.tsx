@@ -43,7 +43,7 @@ export const CTA: React.FC = () => {
               </Button>
             </Link>
             <Link to="/about" className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-slate-900">
+              <Button variant="outlineWhite" size="lg" className="w-full sm:w-auto">
                 Learn More
               </Button>
             </Link>

@@ -117,7 +117,7 @@ export const Home: React.FC = () => {
               </Button>
             </Link>
             <Link to="/contact" className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-slate-900">
+              <Button variant="outlineWhite" size="lg" className="w-full sm:w-auto">
                 Contact Us
               </Button>
             </Link>
@@ -394,13 +394,6 @@ export const Home: React.FC = () => {
             ))}
           </motion.div>
 
-          <div className="text-center mt-12">
-            <Link to="/industries">
-              <Button variant="outline" size="md" className="border-white text-white hover:bg-white hover:text-slate-900">
-                View Industry Details
-              </Button>
-            </Link>
-          </div>
 
         </div>
       </section>
