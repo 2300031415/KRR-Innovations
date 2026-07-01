@@ -5,6 +5,7 @@ import PageBanner from "../components/PageBanner";
 import { timelineData, valuesData, statsData } from "../data/companyData";
 import LucideIcon from "../components/LucideIcon";
 import CTA from "../components/CTA";
+import TechBackground from "../components/TechBackground";
 
 export const About: React.FC = () => {
 
@@ -35,8 +36,9 @@ export const About: React.FC = () => {
       />
 
       {/* 1. INTRODUCTION SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <TechBackground theme="light" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Graphic/Visual Block */}
@@ -126,8 +128,9 @@ export const About: React.FC = () => {
       </section>
 
       {/* 3. CORE VALUES SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <TechBackground theme="light" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs uppercase tracking-widest font-extrabold text-secondary">
               Our Principles

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import PageBanner from "../components/PageBanner";
 import ContactForm from "../components/ContactForm";
+import TechBackground from "../components/TechBackground";
 
 // Inline SVG social icons for reliability
 const FacebookIcon = ({ size = 18 }: { size?: number }) => (
@@ -74,8 +75,9 @@ export const Contact: React.FC = () => {
       />
 
       {/* Contact Details & Form */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <TechBackground theme="light" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             {/* Left Side: Contact Information */}

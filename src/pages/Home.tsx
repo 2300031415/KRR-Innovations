@@ -8,6 +8,7 @@ import LucideIcon from "../components/LucideIcon";
 import Button from "../components/Button";
 import CTA from "../components/CTA";
 import AnimatedCounter from "../components/AnimatedCounter";
+import TechBackground from "../components/TechBackground";
 
 export const Home: React.FC = () => {
   const heroSlides = [
@@ -18,29 +19,24 @@ export const Home: React.FC = () => {
   ];
 
   const [activeSlide, setActiveSlide] = React.useState(0);
-  const [slideDirection, setSlideDirection] = React.useState(1);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setSlideDirection(1);
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000); // 5 seconds interval
     return () => clearInterval(timer);
   }, []);
 
   const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
+    enter: {
       opacity: 0
-    }),
+    },
     center: {
-      x: 0,
       opacity: 1
     },
-    exit: (direction: number) => ({
-      x: direction > 0 ? "-100%" : "100%",
+    exit: {
       opacity: 0
-    })
+    }
   };
 
   // Animation presets
@@ -66,6 +62,7 @@ export const Home: React.FC = () => {
       
       {/* 1. HERO SECTION */}
       <section className="relative min-h-screen w-full bg-[#0b0b24] text-white overflow-hidden grid grid-cols-1 lg:grid-cols-2 pt-20 lg:pt-0">
+        <TechBackground theme="dark" />
         
         {/* Left Side: Hero Text content */}
         <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-20 lg:py-0 space-y-8 z-10 relative">
@@ -100,20 +97,18 @@ export const Home: React.FC = () => {
 
         {/* Right Side: Auto slideshow of images */}
         <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5">
-          <AnimatePresence initial={false} custom={slideDirection} mode="wait">
+          <AnimatePresence initial={false} mode="sync">
             <motion.img
               key={activeSlide}
               src={heroSlides[activeSlide]}
-              custom={slideDirection}
               variants={slideVariants}
               initial="enter"
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.5 }
+                opacity: { duration: 0.8 }
               }}
-              className="w-full h-full object-cover object-center"
+              className="absolute inset-0 w-full h-full object-cover object-center"
               alt={`KRR Innovations Slide ${activeSlide + 1}`}
             />
           </AnimatePresence>
@@ -124,8 +119,9 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. ABOUT PREVIEW SECTION */}
-      <section className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <TechBackground theme="light" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left side text info */}
@@ -305,8 +301,9 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 4. WHY CHOOSE US SECTION */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <TechBackground theme="light" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs uppercase tracking-widest font-extrabold text-secondary">

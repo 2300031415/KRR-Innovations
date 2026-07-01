@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageBanner from "../components/PageBanner";
 import CTA from "../components/CTA";
+import TechBackground from "../components/TechBackground";
 
 export const Gallery: React.FC = () => {
   const [loadImages, setLoadImages] = useState(false);
@@ -37,8 +38,9 @@ export const Gallery: React.FC = () => {
       />
 
       {/* Gallery Grid Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        <TechBackground theme="light" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Image grid */}
           <motion.div 
