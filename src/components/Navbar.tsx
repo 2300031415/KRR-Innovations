@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Home, Info, Briefcase, Target, Building2, Image } from "lucide-react";
 import { servicesData } from "../data/servicesData";
 import logoImg from "../assets/logo.jpg";
 import LucideIcon from "./LucideIcon";
@@ -59,24 +59,26 @@ export const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-8">
               <Link
                 to="/"
-                className={`font-medium transition-colors duration-300 hover:text-primary ${
+                className={`flex items-center space-x-1.5 font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/")
                     ? "text-primary border-b-2 border-primary pb-1"
                     : "text-slate-700 dark:text-slate-300"
                 }`}
               >
-                Home
+                <Home className="w-4 h-4" />
+                <span>Home</span>
               </Link>
 
               <Link
                 to="/about"
-                className={`font-medium transition-colors duration-300 hover:text-primary ${
+                className={`flex items-center space-x-1.5 font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/about")
                     ? "text-primary border-b-2 border-primary pb-1"
                     : "text-slate-700 dark:text-slate-300"
                 }`}
               >
-                About
+                <Info className="w-4 h-4" />
+                <span>About</span>
               </Link>
 
               {/* Services Dropdown */}
@@ -86,12 +88,13 @@ export const Navbar: React.FC = () => {
                 onMouseLeave={() => setIsServicesDropdownOpen(false)}
               >
                 <button
-                  className={`flex items-center space-x-1 font-medium transition-colors duration-300 hover:text-primary focus:outline-none py-2 ${
+                  className={`flex items-center space-x-1.5 font-medium transition-colors duration-300 hover:text-primary focus:outline-none py-2 ${
                     location.pathname.startsWith("/services")
                       ? "text-primary border-b-2 border-primary pb-1"
                       : "text-slate-700 dark:text-slate-300"
                   }`}
                 >
+                  <Briefcase className="w-4 h-4" />
                   <span>Services</span>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesDropdownOpen ? "rotate-180" : ""}`} />
                 </button>
@@ -141,35 +144,38 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/vision-mission"
-                className={`font-medium transition-colors duration-300 hover:text-primary ${
+                className={`flex items-center space-x-1.5 font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/vision-mission")
                     ? "text-primary border-b-2 border-primary pb-1"
                     : "text-slate-700 dark:text-slate-300"
                 }`}
               >
-                Vision & Mission
+                <Target className="w-4 h-4" />
+                <span>Vision & Mission</span>
               </Link>
 
               <Link
                 to="/industries"
-                className={`font-medium transition-colors duration-300 hover:text-primary ${
+                className={`flex items-center space-x-1.5 font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/industries")
                     ? "text-primary border-b-2 border-primary pb-1"
                     : "text-slate-700 dark:text-slate-300"
                 }`}
               >
-                Industries
+                <Building2 className="w-4 h-4" />
+                <span>Industries</span>
               </Link>
 
               <Link
                 to="/gallery"
-                className={`font-medium transition-colors duration-300 hover:text-primary ${
+                className={`flex items-center space-x-1.5 font-medium transition-colors duration-300 hover:text-primary ${
                   isActive("/gallery")
                     ? "text-primary border-b-2 border-primary pb-1"
                     : "text-slate-700 dark:text-slate-300"
                 }`}
               >
-                Gallery
+                <Image className="w-4 h-4" />
+                <span>Gallery</span>
               </Link>
             </div>
           </div>
@@ -230,16 +236,18 @@ export const Navbar: React.FC = () => {
                 <div className="flex flex-col space-y-4">
                   <Link
                     to="/"
-                    className={`font-semibold text-lg py-1 ${isActive("/") ? "text-primary" : "text-slate-700"}`}
+                    className={`flex items-center space-x-3 font-semibold text-lg py-1 ${isActive("/") ? "text-primary" : "text-slate-700"}`}
                   >
-                    Home
+                    <Home className="w-5 h-5" />
+                    <span>Home</span>
                   </Link>
 
                   <Link
                     to="/about"
-                    className={`font-semibold text-lg py-1 ${isActive("/about") ? "text-primary" : "text-slate-700"}`}
+                    className={`flex items-center space-x-3 font-semibold text-lg py-1 ${isActive("/about") ? "text-primary" : "text-slate-700"}`}
                   >
-                    About
+                    <Info className="w-5 h-5" />
+                    <span>About</span>
                   </Link>
 
                   {/* Accordion Services */}
@@ -250,7 +258,10 @@ export const Navbar: React.FC = () => {
                         location.pathname.startsWith("/services") ? "text-primary" : "text-slate-700"
                       }`}
                     >
-                      <span>Services</span>
+                      <div className="flex items-center space-x-3">
+                        <Briefcase className="w-5 h-5" />
+                        <span>Services</span>
+                      </div>
                       <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isMobileServicesOpen ? "rotate-180" : ""}`} />
                     </button>
                     
@@ -283,23 +294,26 @@ export const Navbar: React.FC = () => {
 
                   <Link
                     to="/vision-mission"
-                    className={`font-semibold text-lg py-1 ${isActive("/vision-mission") ? "text-primary" : "text-slate-700"}`}
+                    className={`flex items-center space-x-3 font-semibold text-lg py-1 ${isActive("/vision-mission") ? "text-primary" : "text-slate-700"}`}
                   >
-                    Vision & Mission
+                    <Target className="w-5 h-5" />
+                    <span>Vision & Mission</span>
                   </Link>
 
                   <Link
                     to="/industries"
-                    className={`font-semibold text-lg py-1 ${isActive("/industries") ? "text-primary" : "text-slate-700"}`}
+                    className={`flex items-center space-x-3 font-semibold text-lg py-1 ${isActive("/industries") ? "text-primary" : "text-slate-700"}`}
                   >
-                    Industries
+                    <Building2 className="w-5 h-5" />
+                    <span>Industries</span>
                   </Link>
 
                   <Link
                     to="/gallery"
-                    className={`font-semibold text-lg py-1 ${isActive("/gallery") ? "text-primary" : "text-slate-700"}`}
+                    className={`flex items-center space-x-3 font-semibold text-lg py-1 ${isActive("/gallery") ? "text-primary" : "text-slate-700"}`}
                   >
-                    Gallery
+                    <Image className="w-5 h-5" />
+                    <span>Gallery</span>
                   </Link>
                 </div>
               </div>
