@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { servicesData } from "../data/servicesData";
 import { featuresData, statsData } from "../data/companyData";
 import LucideIcon from "../components/LucideIcon";
@@ -10,6 +10,54 @@ import CTA from "../components/CTA";
 import AnimatedCounter from "../components/AnimatedCounter";
 
 export const Home: React.FC = () => {
+  const heroSlides = [
+    "/images/hero_slide_1.png",
+    "/images/hero_slide_2.png",
+    "/images/hero_slide_3.png",
+    "/images/hero_slide_4.png",
+  ];
+
+  const [activeSlide, setActiveSlide] = React.useState(0);
+  const [slideDirection, setSlideDirection] = React.useState(1);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideDirection(1);
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleNextSlide = () => {
+    setSlideDirection(1);
+    setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const handlePrevSlide = () => {
+    setSlideDirection(-1);
+    setActiveSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const handleIndicatorClick = (idx: number) => {
+    setSlideDirection(idx > activeSlide ? 1 : -1);
+    setActiveSlide(idx);
+  };
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 500 : -500,
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -500 : 500,
+      opacity: 0
+    })
+  };
+
   // Animation presets
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -69,57 +117,68 @@ export const Home: React.FC = () => {
         {/* Tech Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] z-0" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full mb-6"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-white/10 bg-slate-900/50 shadow-2xl backdrop-blur-md group/slider"
           >
-            <ShieldCheck className="w-4 h-4 text-accent" />
-            <span className="text-xs sm:text-sm font-semibold tracking-wider text-slate-100 uppercase">
-              Corporate Innovation & Consultancy
-            </span>
-          </motion.div>
+            {/* Slide Images */}
+            <div className="absolute inset-0 w-full h-full">
+              <AnimatePresence initial={false} custom={slideDirection} mode="wait">
+                <motion.img
+                  key={activeSlide}
+                  src={heroSlides[activeSlide]}
+                  custom={slideDirection}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.35 }
+                  }}
+                  className="w-full h-full object-contain bg-slate-950"
+                  alt={`KRR Innovations Slide ${activeSlide + 1}`}
+                />
+              </AnimatePresence>
+            </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white tracking-tight leading-tight max-w-5xl mx-auto"
-          >
-            Transforming Ideas into <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-accent via-accent-light to-secondary bg-clip-text text-transparent">
-              Innovation, Growth & Success
-            </span>
-          </motion.h1>
+            {/* Left Control Arrow */}
+            <button
+              onClick={handlePrevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/40 hover:bg-slate-900/80 text-white flex items-center justify-center border border-white/10 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-20 focus:outline-none"
+            >
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-6 text-base sm:text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed"
-          >
-            Empowering Entrepreneurs, Startups, Businesses, Students, Professionals and Institutions through Innovation, Technology, Intellectual Property, Professional Development and Strategic Consulting.
-          </motion.p>
+            {/* Right Control Arrow */}
+            <button
+              onClick={handleNextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-900/40 hover:bg-slate-900/80 text-white flex items-center justify-center border border-white/10 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 backdrop-blur-sm z-20 focus:outline-none"
+            >
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link to="/about" className="w-full sm:w-auto">
-              <Button variant="accent" size="lg" className="w-full sm:w-auto flex items-center justify-center space-x-2">
-                <span>Explore Services</span>
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
-            <Link to="/contact" className="w-full sm:w-auto">
-              <Button variant="outlineWhite" size="lg" className="w-full sm:w-auto">
-                Contact Us
-              </Button>
-            </Link>
+            {/* Indicators Dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center space-x-2.5 z-20 py-2 px-4 rounded-full bg-slate-900/40 backdrop-blur-md border border-white/5">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleIndicatorClick(idx)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
+                    idx === activeSlide 
+                      ? "bg-accent w-6" 
+                      : "bg-white/40 hover:bg-white/70"
+                  }`}
+                />
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
