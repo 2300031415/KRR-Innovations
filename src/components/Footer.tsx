@@ -148,19 +148,19 @@ export const Footer: React.FC = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                 <span className="text-slate-400">
-                  KRR Innovations Pvt. Ltd., Suite 402, Business Tower, Bengaluru, Karnataka, India - 560001
+                  KRR Innovations Pvt. Ltd., PL-402, FL-4, Sec-1, Lotus Land Mark, Ayodyanagar, Vijayawada Urban, Krishna, Andhra Pradesh - 520003
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-accent shrink-0" />
-                <a href="tel:+918045678900" className="hover:text-accent transition-colors text-slate-400">
-                  +91 80 4567 8900
+                <a href="tel:+917842460920" className="hover:text-accent transition-colors text-slate-400">
+                  +91 78424 60920
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-accent shrink-0" />
-                <a href="mailto:info@krrinnovations.com" className="hover:text-accent transition-colors text-slate-400">
-                  info@krrinnovations.com
+                <a href="mailto:krrinnovations@gmail.com" className="hover:text-accent transition-colors text-slate-400">
+                  krrinnovations@gmail.com
                 </a>
               </li>
             </ul>

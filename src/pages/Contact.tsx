@@ -34,24 +34,23 @@ export const Contact: React.FC = () => {
       title: "Our Head Office",
       lines: [
         "KRR Innovations Pvt. Ltd.",
-        "Suite 402, Business Tower, MG Road,",
-        "Bengaluru, Karnataka, India - 560001"
+        "PL-402, FL-4, Sec-1, Lotus Land Mark,",
+        "Ayodyanagar, Vijayawada Urban, Krishna,",
+        "Andhra Pradesh, India - 520003"
       ]
     },
     {
       icon: <Phone className="w-5 h-5 text-primary" />,
       title: "Call Us",
       lines: [
-        "+91 80 4567 8900",
-        "+91 98765 43210"
+        "+91 78424 60920"
       ]
     },
     {
       icon: <Mail className="w-5 h-5 text-primary" />,
       title: "Email Us",
       lines: [
-        "info@krrinnovations.com",
-        "support@krrinnovations.com"
+        "krrinnovations@gmail.com"
       ]
     },
     {
@@ -168,7 +167,7 @@ export const Contact: React.FC = () => {
           </div>
           <h3 className="text-lg font-heading font-extrabold text-slate-800">KRR Innovations Headquarters</h3>
           <p className="text-sm text-slate-500 mt-1 max-w-sm">
-            MG Road, Bengaluru, Karnataka, India
+            Lotus Land Mark, Vijayawada, Andhra Pradesh, India
           </p>
           <span className="mt-4 px-4 py-1.5 rounded-full bg-white text-xs font-semibold text-primary shadow border border-slate-100">
             Interactive map requires API Key, displaying vector layout
