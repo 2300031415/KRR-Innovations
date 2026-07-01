@@ -31,26 +31,14 @@ export const Gallery: React.FC = () => {
     <div className="bg-slate-50 min-h-screen">
       {/* Page Header */}
       <PageBanner
-        title="Corporate Gallery"
-        breadcrumbs={[{ label: "Gallery" }]}
-        subtitle="A visual documentation of KRR Innovations' corporate meets, industrial MSME expos, and training bootcamps."
+        title="KRR Innovations in Action"
+        breadcrumbs={[{ label: "Visual Showcase" }]}
+        subtitle="Explore the records of our milestones, corporate meets, industrial trade fairs, and active training sessions."
       />
 
       {/* Gallery Grid Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs uppercase tracking-widest font-extrabold text-secondary">
-              Visual Showcase
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 mt-2">
-              KRR Innovations in Action
-            </h2>
-            <p className="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed">
-              Explore the records of our milestones, corporate meets, industrial trade fairs, and active training sessions.
-            </p>
-          </div>
 
           {/* Image grid */}
           <motion.div 
