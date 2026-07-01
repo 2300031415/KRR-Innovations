@@ -4,7 +4,6 @@ import PageBanner from "../components/PageBanner";
 import CTA from "../components/CTA";
 
 export const Gallery: React.FC = () => {
-  const [filter, setFilter] = useState("All");
   const [loadImages, setLoadImages] = useState(false);
 
   useEffect(() => {
@@ -16,7 +15,6 @@ export const Gallery: React.FC = () => {
   }, []);
 
   const galleryImages = [
-    { src: "/pptx_images/slide_1_img_0_0.jpg", category: "Corporate", caption: "KRR Innovations Vision Kickoff" },
     { src: "/pptx_images/slide_1_img_1_1.jpg", category: "Corporate", caption: "Corporate Collaboration Session" },
     { src: "/pptx_images/slide_1_img_2_2.jpg", category: "Corporate", caption: "Leadership Meeting" },
     { src: "/pptx_images/slide_1_img_3_3.jpg", category: "Corporate", caption: "Strategic Team Building" },
@@ -28,10 +26,6 @@ export const Gallery: React.FC = () => {
     { src: "/pptx_images/slide_5_img_2_36.jpg", category: "Training", caption: "Interactive Technology Workshop" },
     { src: "/pptx_images/slide_5_img_3_37.jpg", category: "Training", caption: "Professional Leadership Development" }
   ];
-
-  const filteredImages = filter === "All" 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === filter);
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -58,30 +52,13 @@ export const Gallery: React.FC = () => {
             </p>
           </div>
 
-          {/* Filter tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-            {["All", "Corporate", "Events", "Training"].map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  filter === category
-                    ? "bg-primary text-white shadow-md shadow-primary/20"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                }`}
-              >
-                {category === "All" ? "Show All" : category}
-              </button>
-            ))}
-          </div>
-
           {/* Image grid */}
           <motion.div 
             layout
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             <AnimatePresence mode="popLayout">
-              {filteredImages.map((img) => (
+              {galleryImages.map((img) => (
                 <motion.div
                   layout
                   initial={{ opacity: 0, scale: 0.9 }}
