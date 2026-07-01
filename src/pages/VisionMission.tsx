@@ -5,7 +5,6 @@ import PageBanner from "../components/PageBanner";
 import { valuesData } from "../data/companyData";
 import LucideIcon from "../components/LucideIcon";
 import CTA from "../components/CTA";
-import BackgroundVideo from "../components/BackgroundVideo";
 
 export const VisionMission: React.FC = () => {
   const fadeInUp = {
@@ -35,9 +34,8 @@ export const VisionMission: React.FC = () => {
       />
 
       {/* 1. VISION & MISSION CARDS */}
-      <section className="py-24 bg-transparent relative overflow-hidden">
-        <BackgroundVideo opacity={0.9} />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* Vision Card */}
