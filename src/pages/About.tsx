@@ -41,7 +41,7 @@ export const About: React.FC = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            {/* Graphic/Visual Block */}
+            {/* Graphic/Visual Block - Corporate Video */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -49,25 +49,18 @@ export const About: React.FC = () => {
               transition={{ duration: 0.7 }}
               className="relative aspect-video lg:aspect-square bg-gradient-to-tr from-primary to-secondary rounded-2xl overflow-hidden shadow-2xl p-[1px] group"
             >
-              <div className="w-full h-full bg-slate-900 rounded-[15px] p-8 flex flex-col justify-between relative overflow-hidden">
-                {/* Tech elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full filter blur-2xl group-hover:bg-accent/20 transition-all duration-500" />
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:2rem_2rem]" />
-                
-                <div className="z-10">
-                  <span className="text-xs font-bold uppercase tracking-widest text-accent">Corporate Profile</span>
-                  <h3 className="text-2xl sm:text-3xl font-heading font-bold text-white mt-4 leading-tight">
-                    Fostering a Culture of Innovation & Strategy
-                  </h3>
-                </div>
-
-                <div className="z-10 border-t border-white/10 pt-6">
-                  <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                    \"Innovation isn't just about coming up with new features; it is about building sustainable ecosystems where technology, market protection, and skills work in harmony.\"
-                  </p>
-                  <span className="text-xs font-heading font-semibold text-white block">KRR Leadership Board</span>
-                  <span className="text-[10px] text-slate-500 block">KRR Innovations Pvt. Ltd.</span>
-                </div>
+              <div className="w-full h-full bg-slate-900 rounded-[15px] overflow-hidden relative">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/videos/about_profile.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent pointer-events-none" />
               </div>
             </motion.div>
 
