@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
                   KRR Innovations
                 </span>
                 <span className="font-sans text-[9px] uppercase font-bold tracking-widest text-accent">
-                  Pvt. Ltd.
+                  Private Limited
                 </span>
               </div>
             </Link>

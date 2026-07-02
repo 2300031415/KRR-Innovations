@@ -118,7 +118,80 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. ABOUT PREVIEW SECTION */}
+      {/* 2. OUR SERVICES SECTION */}
+      <section className="py-24 bg-slate-50 relative bg-gradient-mesh">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs uppercase tracking-widest font-extrabold text-primary">
+              Core Divisions
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 mt-2">
+              Our Service Offerings
+            </h2>
+            <p className="text-slate-650 mt-4 leading-relaxed">
+              We operate across four specialized business divisions, offering seamless corporate consultancy, tech product architecture, legal IP registration, and industry networking.
+            </p>
+          </div>
+
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {servicesData.map((service) => (
+              <motion.div
+                key={service.path}
+                variants={fadeInUp}
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 relative overflow-hidden"
+              >
+                {/* Visual card header image */}
+                <div className="h-44 w-full relative overflow-hidden bg-slate-50 border-b border-slate-100">
+                  {service.imageUrl ? (
+                    <img 
+                      src={service.imageUrl} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-50 flex items-center justify-center text-slate-400">
+                      <LucideIcon name={service.iconName} size={40} className="text-primary/20" />
+                    </div>
+                  )}
+                  {/* Category icon overlay */}
+                  <div className="absolute bottom-3 left-3 w-10 h-10 rounded-lg bg-white/95 backdrop-blur-sm text-primary flex items-center justify-center shadow-md">
+                    <LucideIcon name={service.iconName} size={20} />
+                  </div>
+                </div>
+
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-heading font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-550 text-sm leading-relaxed mb-6 line-clamp-3">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <Link 
+                    to={service.path}
+                    className="inline-flex items-center text-sm font-semibold text-primary group-hover:text-secondary space-x-1 hover:underline pt-2"
+                  >
+                    <span>Learn More</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* 3. ABOUT PREVIEW SECTION */}
       <section className="py-24 bg-white relative overflow-hidden">
         <TechBackground theme="light" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,7 +205,7 @@ export const Home: React.FC = () => {
               <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
                 Driving Next-Generation Innovation & Technology Strategies
               </h2>
-              <p className="text-slate-600 leading-relaxed text-base">
+              <p className="text-slate-650 leading-relaxed text-base">
                 KRR Innovations Pvt. Ltd. is a premium consulting partner dedicated to nurturing commercial concepts, creating scalable software platforms, and safeguarding creative ideas. We deliver cohesive models spanning across legal IPR filings, business automation, skill training academies, and industrial meetups.
               </p>
               
@@ -227,81 +300,8 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. OUR SERVICES SECTION */}
-      <section className="py-24 bg-slate-50 relative bg-gradient-mesh">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs uppercase tracking-widest font-extrabold text-primary">
-              Core Divisions
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 mt-2">
-              Our Service Offerings
-            </h2>
-            <p className="text-slate-650 mt-4 leading-relaxed">
-              We operate across four specialized business divisions, offering seamless corporate consultancy, tech product architecture, legal IP registration, and industry networking.
-            </p>
-          </div>
-
-          <motion.div 
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {servicesData.map((service) => (
-              <motion.div
-                key={service.path}
-                variants={fadeInUp}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 relative overflow-hidden"
-              >
-                {/* Visual card header image */}
-                <div className="h-44 w-full relative overflow-hidden bg-slate-50 border-b border-slate-100">
-                  {service.imageUrl ? (
-                    <img 
-                      src={service.imageUrl} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-slate-50 flex items-center justify-center text-slate-400">
-                      <LucideIcon name={service.iconName} size={40} className="text-primary/20" />
-                    </div>
-                  )}
-                  {/* Category icon overlay */}
-                  <div className="absolute bottom-3 left-3 w-10 h-10 rounded-lg bg-white/95 backdrop-blur-sm text-primary flex items-center justify-center shadow-md">
-                    <LucideIcon name={service.iconName} size={20} />
-                  </div>
-                </div>
-
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg font-heading font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-slate-550 text-sm leading-relaxed mb-6 line-clamp-3">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <Link 
-                    to={service.path}
-                    className="inline-flex items-center text-sm font-semibold text-primary group-hover:text-secondary space-x-1 hover:underline pt-2"
-                  >
-                    <span>Learn More</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-        </div>
-      </section>
-
       {/* 4. WHY CHOOSE US SECTION */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
         <TechBackground theme="light" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           

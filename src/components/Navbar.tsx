@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
                   KRR Innovations
                 </span>
                 <span className="font-sans text-[10px] uppercase font-black tracking-[0.25em] text-slate-500 -mt-1.5 dark:text-slate-400 group-hover:text-primary transition-colors duration-300">
-                  Pvt. Ltd.
+                  Private Limited
                 </span>
               </div>
             </Link>
