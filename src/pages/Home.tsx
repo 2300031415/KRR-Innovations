@@ -35,11 +35,11 @@ export const Home: React.FC = () => {
     <div className="relative">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen w-full bg-[#0b0b24] text-white overflow-hidden grid grid-cols-1 lg:grid-cols-2 pt-20 lg:pt-0">
+      <section className="relative min-h-screen w-full bg-[#0b0b24] text-white overflow-hidden grid grid-cols-1 lg:grid-cols-12 pt-20 lg:pt-0">
         <TechBackground theme="dark" />
         
         {/* Left Side: Hero Text content */}
-        <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-20 lg:py-0 space-y-8 z-10 relative">
+        <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-20 lg:py-0 space-y-8 z-10 relative lg:col-span-7">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Right Side: Autoplay Loop Video */}
-        <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5">
+        <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5 lg:col-span-5">
           <video
             autoPlay
             loop
