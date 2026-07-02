@@ -72,15 +72,6 @@ export const Gallery: React.FC = () => {
                       </div>
                     )}
                   </div>
-                  {/* Hover banner details */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <span className="text-[10px] text-accent font-bold uppercase tracking-wider mb-1">
-                      {img.category}
-                    </span>
-                    <h4 className="text-white font-heading font-bold text-sm sm:text-base leading-tight">
-                      {img.caption}
-                    </h4>
-                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
