@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { servicesData } from "../data/servicesData";
 import { featuresData, statsData } from "../data/companyData";
@@ -11,33 +11,7 @@ import AnimatedCounter from "../components/AnimatedCounter";
 import TechBackground from "../components/TechBackground";
 
 export const Home: React.FC = () => {
-  const heroSlides = [
-    "/images/hero_slide_1.png",
-    "/images/hero_slide_2.png",
-    "/images/hero_slide_3.png",
-    "/images/hero_slide_4.png",
-  ];
 
-  const [activeSlide, setActiveSlide] = React.useState(0);
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000); // 5 seconds interval
-    return () => clearInterval(timer);
-  }, []);
-
-  const slideVariants = {
-    enter: {
-      opacity: 0
-    },
-    center: {
-      opacity: 1
-    },
-    exit: {
-      opacity: 0
-    }
-  };
 
   // Animation presets
   const fadeInUp = {
@@ -95,23 +69,18 @@ export const Home: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Side: Auto slideshow of images */}
+        {/* Right Side: Autoplay Loop Video */}
         <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5">
-          <AnimatePresence initial={false} mode="sync">
-            <motion.img
-              key={activeSlide}
-              src={heroSlides[activeSlide]}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                opacity: { duration: 0.8 }
-              }}
-              className="absolute inset-0 w-full h-full object-cover object-center"
-              alt={`KRR Innovations Slide ${activeSlide + 1}`}
-            />
-          </AnimatePresence>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/hero_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           {/* Subtle gradient overlay to blend into the left navy background on large screens */}
           <div className="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0b24] to-transparent z-10" />
           <div className="absolute inset-0 bg-slate-950/10 z-10" />
