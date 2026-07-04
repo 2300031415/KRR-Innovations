@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Right Side: Autoplay Loop Video */}
-        <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5">
+        <div className="relative w-full h-[350px] lg:h-screen overflow-hidden z-0 bg-slate-900 border-l border-white/5">
           <video
             ref={videoRef}
             autoPlay
