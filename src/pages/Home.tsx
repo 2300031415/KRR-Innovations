@@ -43,42 +43,11 @@ export const Home: React.FC = () => {
     <div className="relative">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen w-full bg-[#0b0b24] text-white overflow-hidden grid grid-cols-1 lg:grid-cols-2 pt-20 lg:pt-0">
+      <section className="relative h-screen w-full bg-[#0b0b24] text-white overflow-hidden pt-20 lg:pt-0">
         <TechBackground theme="dark" />
         
-        {/* Left Side: Hero Text content */}
-        <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-20 lg:py-0 space-y-8 z-10 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white leading-tight">
-              Transforming Ideas into <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Innovation, Growth & Success</span>
-            </h1>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
-              Empowering Entrepreneurs, Startups, Businesses, Students, Professionals and Institutions through Innovation, Technology, Intellectual Property, Professional Development and Strategic Consulting.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap gap-4 pt-2"
-          >
-            <Link to="/services">
-              <Button variant="primary" size="lg">Explore Services</Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="outlineWhite" size="lg">Contact Us</Button>
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* Right Side: Autoplay Loop Video */}
-        <div className="relative w-full h-[350px] lg:h-screen overflow-hidden z-0 bg-slate-900 border-l border-white/5">
+        {/* Full Screen Autoplay Loop Video */}
+        <div className="relative w-full h-full overflow-hidden z-0">
           <video
             ref={videoRef}
             autoPlay
@@ -103,9 +72,7 @@ export const Home: React.FC = () => {
               <LucideIcon name="Volume2" size={18} className="group-hover:scale-110 transition-transform text-secondary animate-pulse" />
             )}
           </button>
-          {/* Subtle gradient overlay to blend into the left navy background on large screens */}
-          <div className="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0b24] to-transparent z-10" />
-          <div className="absolute inset-0 bg-slate-950/10 z-10" />
+          <div className="absolute inset-0 bg-slate-950/15 z-10 pointer-events-none" />
         </div>
       </section>
 
