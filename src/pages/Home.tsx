@@ -14,13 +14,6 @@ export const Home: React.FC = () => {
   const [isMuted, setIsMuted] = React.useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
-    }
-  };
-
 
   // Animation presets
   const fadeInUp = {
@@ -78,41 +71,34 @@ export const Home: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Side: Autoplay Loop Video */}
-        <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5 lg:col-span-5 group/video">
+        <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5 lg:col-span-5">
           <video
             ref={videoRef}
             autoPlay
             loop
             muted={isMuted}
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover origin-center"
+            style={{ transform: "scale(1.28)" }}
           >
-            <source src="/videos/hero_video.webm" type="video/webm" />
+            <source src="/videos/hero_video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          {/* Mute/Unmute toggle button */}
+          <button
+            onClick={() => setIsMuted(!isMuted)}
+            className="absolute bottom-6 right-6 z-20 p-3 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white backdrop-blur-sm border border-white/10 transition-all duration-300 shadow-lg cursor-pointer flex items-center justify-center group"
+            title={isMuted ? "Unmute Video" : "Mute Video"}
+          >
+            {isMuted ? (
+              <LucideIcon name="VolumeX" size={18} className="group-hover:scale-110 transition-transform text-white/70" />
+            ) : (
+              <LucideIcon name="Volume2" size={18} className="group-hover:scale-110 transition-transform text-secondary animate-pulse" />
+            )}
+          </button>
           {/* Subtle gradient overlay to blend into the left navy background on large screens */}
           <div className="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0b24] to-transparent z-10" />
           <div className="absolute inset-0 bg-slate-950/10 z-10" />
-          
-          {/* Mute/Unmute Toggle Button */}
-          <button
-            onClick={toggleMute}
-            className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-slate-950/50 hover:bg-slate-950/80 text-white border border-white/10 backdrop-blur-md transition-all duration-300 shadow-md hover:scale-105 cursor-pointer opacity-80 hover:opacity-100 flex items-center justify-center"
-            aria-label={isMuted ? "Unmute video" : "Mute video"}
-          >
-            {isMuted ? (
-              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="1" y1="1" x2="23" y2="23"></line>
-                <path d="M9 9v6a3 3 0 0 0 3 3h1.586l4.707 4.707A1 1 0 0 0 20 22V4a1 1 0 0 0-1.707-.707L13.586 8H12a3 3 0 0 0-3 3z"></path>
-              </svg>
-            ) : (
-              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              </svg>
-            )}
-          </button>
         </div>
       </section>
 

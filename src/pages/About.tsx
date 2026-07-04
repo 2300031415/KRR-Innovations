@@ -8,6 +8,8 @@ import CTA from "../components/CTA";
 import TechBackground from "../components/TechBackground";
 
 export const About: React.FC = () => {
+  const [isMuted, setIsMuted] = React.useState(true);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 25 },
@@ -51,15 +53,28 @@ export const About: React.FC = () => {
             >
               <div className="w-full h-full bg-slate-900 rounded-[15px] overflow-hidden relative">
                 <video
+                  ref={videoRef}
                   autoPlay
                   loop
-                  muted
+                  muted={isMuted}
                   playsInline
                   className="w-full h-full object-cover"
                 >
                   <source src="/videos/about_profile.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                {/* Mute/Unmute toggle button */}
+                <button
+                  onClick={() => setIsMuted(!isMuted)}
+                  className="absolute bottom-6 right-6 z-20 p-3 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white backdrop-blur-sm border border-white/10 transition-all duration-300 shadow-lg cursor-pointer flex items-center justify-center group"
+                  title={isMuted ? "Unmute Video" : "Mute Video"}
+                >
+                  {isMuted ? (
+                    <LucideIcon name="VolumeX" size={18} className="group-hover:scale-110 transition-transform text-white/70" />
+                  ) : (
+                    <LucideIcon name="Volume2" size={18} className="group-hover:scale-110 transition-transform text-secondary animate-pulse" />
+                  )}
+                </button>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent pointer-events-none" />
               </div>
             </motion.div>
