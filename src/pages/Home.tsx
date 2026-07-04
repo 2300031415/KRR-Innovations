@@ -43,11 +43,11 @@ export const Home: React.FC = () => {
     <div className="relative">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen w-full bg-[#0b0b24] text-white overflow-hidden grid grid-cols-1 lg:grid-cols-12 pt-20 lg:pt-0">
+      <section className="relative min-h-screen w-full bg-[#0b0b24] text-white overflow-hidden grid grid-cols-1 lg:grid-cols-2 pt-20 lg:pt-0">
         <TechBackground theme="dark" />
         
         {/* Left Side: Hero Text content */}
-        <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-20 lg:py-0 space-y-8 z-10 relative lg:col-span-7">
+        <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-20 lg:py-0 space-y-8 z-10 relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,34 +78,34 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Right Side: Autoplay Loop Video */}
-        <div className="relative w-full flex items-center justify-center p-6 sm:p-12 lg:p-16 z-10 lg:col-span-5 bg-slate-950/20 lg:bg-transparent border-t lg:border-t-0 lg:border-l border-white/5">
-          <div className="relative w-full max-w-xl aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-white/10 bg-slate-950">
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover origin-center animate-fade-in"
-              style={{ transform: "scale(1.28)" }}
-            >
-              <source src="/videos/hero_video.webm" type="video/webm" />
-              Your browser does not support the video tag.
-            </video>
-            {/* Mute/Unmute toggle button */}
-            <button
-              onClick={() => setIsMuted(!isMuted)}
-              className="absolute bottom-4 right-4 z-20 p-2.5 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white backdrop-blur-sm border border-white/10 transition-all duration-300 shadow-lg cursor-pointer flex items-center justify-center group"
-              title={isMuted ? "Unmute Video" : "Mute Video"}
-            >
-              {isMuted ? (
-                <LucideIcon name="VolumeX" size={16} className="group-hover:scale-110 transition-transform text-white/70" />
-              ) : (
-                <LucideIcon name="Volume2" size={16} className="group-hover:scale-110 transition-transform text-secondary animate-pulse" />
-              )}
-            </button>
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent pointer-events-none" />
-          </div>
+        <div className="relative w-full h-[350px] lg:h-full overflow-hidden z-0 bg-slate-900 border-l border-white/5">
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover origin-center"
+            style={{ transform: "scale(1.28)" }}
+          >
+            <source src="/videos/hero_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* Mute/Unmute toggle button */}
+          <button
+            onClick={() => setIsMuted(!isMuted)}
+            className="absolute bottom-6 right-6 z-20 p-3 rounded-full bg-slate-950/60 hover:bg-slate-950/90 text-white backdrop-blur-sm border border-white/10 transition-all duration-300 shadow-lg cursor-pointer flex items-center justify-center group"
+            title={isMuted ? "Unmute Video" : "Mute Video"}
+          >
+            {isMuted ? (
+              <LucideIcon name="VolumeX" size={18} className="group-hover:scale-110 transition-transform text-white/70" />
+            ) : (
+              <LucideIcon name="Volume2" size={18} className="group-hover:scale-110 transition-transform text-secondary animate-pulse" />
+            )}
+          </button>
+          {/* Subtle gradient overlay to blend into the left navy background on large screens */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b0b24] to-transparent z-10" />
+          <div className="absolute inset-0 bg-slate-950/10 z-10" />
         </div>
       </section>
 
