@@ -204,7 +204,7 @@ export const Navbar: React.FC = () => {
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black z-40 lg:hidden"
+              className="fixed inset-0 bg-black z-[100] lg:hidden"
             />
             {/* Drawer */}
             <motion.div
@@ -212,7 +212,7 @@ export const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", bounce: 0.1, duration: 0.4 }}
-              className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-2xl z-50 p-6 flex flex-col justify-between overflow-y-auto lg:hidden"
+              className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-2xl z-[110] p-6 flex flex-col justify-between overflow-y-auto lg:hidden"
             >
               <div className="flex flex-col space-y-6 mt-8">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100">
