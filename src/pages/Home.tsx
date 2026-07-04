@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/videos/hero_video.mp4" type="video/mp4" />
+            <source src="/videos/hero_video.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
           {/* Subtle gradient overlay to blend into the left navy background on large screens */}
