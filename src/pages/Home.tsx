@@ -14,6 +14,12 @@ export const Home: React.FC = () => {
   const [isMuted, setIsMuted] = React.useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
 
   // Animation presets
   const fadeInUp = {
@@ -76,7 +82,7 @@ export const Home: React.FC = () => {
             ref={videoRef}
             autoPlay
             loop
-            muted={isMuted}
+            muted
             playsInline
             className="w-full h-full object-cover origin-center"
             style={{ transform: "scale(1.28)" }}

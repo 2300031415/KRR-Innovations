@@ -11,6 +11,12 @@ export const About: React.FC = () => {
   const [isMuted, setIsMuted] = React.useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 25 },
     whileInView: { opacity: 1, y: 0 },
@@ -56,7 +62,7 @@ export const About: React.FC = () => {
                   ref={videoRef}
                   autoPlay
                   loop
-                  muted={isMuted}
+                  muted
                   playsInline
                   className="w-full h-full object-cover"
                 >
