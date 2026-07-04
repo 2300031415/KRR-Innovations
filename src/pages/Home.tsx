@@ -55,7 +55,7 @@ export const Home: React.FC = () => {
             muted
             playsInline
             className="w-full h-full object-cover origin-center"
-            style={{ transform: "scale(1.28)" }}
+            style={{ transform: "scale(1.14)" }}
           >
             <source src="/videos/hero_video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
