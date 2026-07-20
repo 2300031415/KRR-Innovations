@@ -120,7 +120,7 @@ export const servicesData: ServiceDetail[] = [
     description: "Nurturing the next generation of innovators. Professional training in entrepreneurship, leadership, digital skills, and startup mentoring.",
     iconName: "GraduationCap",
     path: "/services/training",
-    imageUrl: "/images/training.png",
+    imageUrl: "/images/training.jpeg",
     tagline: "Empowering Students, Professionals & Leaders for the Future Economy",
     overview: "Continuous learning and professional skill enhancement are critical in the face of rapid technological advances. Our skill development training programs are carefully designed to bridge the academic-industry gap and equip individuals with real-world skills.",
     features: [
