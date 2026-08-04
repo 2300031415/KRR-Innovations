@@ -33,42 +33,347 @@ export const Gallery: React.FC = () => {
 
   const eventsData: EventGallery[] = [
     {
-      id: "corporate",
-      title: "Corporate Collaboration & Leadership",
-      category: "Corporate",
-      date: "June 2026",
-      description: "Executive coordination and administrative planning sessions focusing on project management, team synergy, and company expansion milestones.",
-      images: [
-        { src: "/pptx_images/slide_1_img_1_1.jpg", caption: "Corporate Collaboration Session" },
-        { src: "/pptx_images/slide_1_img_2_2.jpg", caption: "Leadership Meeting" },
-        { src: "/pptx_images/slide_1_img_3_3.jpg", caption: "Strategic Team Building" }
-      ]
-    },
-    {
-      id: "events",
-      title: "MSME Industrial Expo & Startup Summit",
+      id: "awareness_prog",
+      title: "Awareness Prog",
       category: "Events",
-      date: "July 2026",
-      description: "Connecting local business communities, MSMEs, entrepreneurs, and startup mentors through interactive trade fairs, panels, and live pitch networking sessions.",
+      date: "August 2026",
+      description: "Awareness Prog records and gallery showcase.",
       images: [
-        { src: "/pptx_images/slide_3_img_1_14.jpg", caption: "MSME Industrial Expo & Fairs" },
-        { src: "/pptx_images/slide_3_img_2_15.jpg", caption: "Business Networking Meetup" },
-        { src: "/pptx_images/slide_3_img_3_16.jpg", caption: "Startup Pitch & Mentoring Day" }
+        {
+          src: "/gallery/Awareness prog/Copy of DSC_3401.JPG",
+          caption: "Awareness Prog - Copy of DSC_3401"
+        },
+        {
+          src: "/gallery/Awareness prog/Copy of DSC_3404.JPG",
+          caption: "Awareness Prog - Copy of DSC_3404"
+        },
+        {
+          src: "/gallery/Awareness prog/Copy of DSC_3413.JPG",
+          caption: "Awareness Prog - Copy of DSC_3413"
+        },
+        {
+          src: "/gallery/Awareness prog/Copy of DSC_3415.JPG",
+          caption: "Awareness Prog - Copy of DSC_3415"
+        },
+        {
+          src: "/gallery/Awareness prog/Copy of DSC_3420.JPG",
+          caption: "Awareness Prog - Copy of DSC_3420"
+        },
+        {
+          src: "/gallery/Awareness prog/WhatsApp Image 2026-06-20 at 5.42.15 PM (1).jpeg",
+          caption: "Awareness Prog - WhatsApp Image 2026-06-20 at 5"
+        },
+        {
+          src: "/gallery/Awareness prog/WhatsApp Image 2026-06-20 at 6.13.17 PM.jpeg",
+          caption: "Awareness Prog - WhatsApp Image 2026-06-20 at 6"
+        },
+        {
+          src: "/gallery/Awareness prog/WhatsApp Image 2026-06-20 at 6.13.21 PM (1).jpeg",
+          caption: "Awareness Prog - WhatsApp Image 2026-06-20 at 6"
+        },
+        {
+          src: "/gallery/Awareness prog/WhatsApp Image 2026-07-11 at 7.19.17 PM.jpeg",
+          caption: "Awareness Prog - WhatsApp Image 2026-07-11 at 7"
+        },
+        {
+          src: "/gallery/Awareness prog/WhatsApp Image 2026-07-11 at 7.19.19 PM.jpeg",
+          caption: "Awareness Prog - WhatsApp Image 2026-07-11 at 7"
+        },
       ]
     },
     {
-      id: "training",
-      title: "Advanced Skill Development Training",
-      category: "Training",
-      date: "July 2026",
-      description: "Practical entrepreneurship development workshops, leadership training bootcamps, and digital skills mentoring sessions for professionals and students.",
+      id: "gi_2026",
+      title: "Gi 2026",
+      category: "Events",
+      date: "August 2026",
+      description: "Gi 2026 records and gallery showcase.",
       images: [
-        { src: "/pptx_images/slide_5_img_0_34.jpg", caption: "Skill Development Training Bootcamp" },
-        { src: "/pptx_images/slide_5_img_1_35.jpg", caption: "Entrepreneurship Development Program" },
-        { src: "/pptx_images/slide_5_img_2_36.jpg", caption: "Interactive Technology Workshop" },
-        { src: "/pptx_images/slide_5_img_3_37.jpg", caption: "Professional Leadership Development" }
+        {
+          src: "/gallery/gi 2026/Clip0191T01.JPG",
+          caption: "Gi 2026 - Clip0191T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0192T01.JPG",
+          caption: "Gi 2026 - Clip0192T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0193T01.JPG",
+          caption: "Gi 2026 - Clip0193T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0219T01.JPG",
+          caption: "Gi 2026 - Clip0219T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0233T01.JPG",
+          caption: "Gi 2026 - Clip0233T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0246T01.JPG",
+          caption: "Gi 2026 - Clip0246T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0259T01.JPG",
+          caption: "Gi 2026 - Clip0259T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0260T01.JPG",
+          caption: "Gi 2026 - Clip0260T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0264T01.JPG",
+          caption: "Gi 2026 - Clip0264T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0265T01.JPG",
+          caption: "Gi 2026 - Clip0265T01"
+        },
+        {
+          src: "/gallery/gi 2026/Clip0269T01.JPG",
+          caption: "Gi 2026 - Clip0269T01"
+        },
+        {
+          src: "/gallery/gi 2026/DSC06587.JPG",
+          caption: "Gi 2026 - DSC06587"
+        },
+        {
+          src: "/gallery/gi 2026/DSC06889.JPG",
+          caption: "Gi 2026 - DSC06889"
+        },
+        {
+          src: "/gallery/gi 2026/DSC06911.JPG",
+          caption: "Gi 2026 - DSC06911"
+        },
+        {
+          src: "/gallery/gi 2026/DSC06930.JPG",
+          caption: "Gi 2026 - DSC06930"
+        },
+        {
+          src: "/gallery/gi 2026/DSC06960.JPG",
+          caption: "Gi 2026 - DSC06960"
+        },
+        {
+          src: "/gallery/gi 2026/DSC07020.JPG",
+          caption: "Gi 2026 - DSC07020"
+        },
+        {
+          src: "/gallery/gi 2026/DSC07136.JPG",
+          caption: "Gi 2026 - DSC07136"
+        },
       ]
-    }
+    },
+    {
+      id: "ipr_yatra_2025",
+      title: "Ipr Yatra 2025",
+      category: "Events",
+      date: "2025",
+      description: "IPR Awareness Yatra events conducted to propagate patenting, trademark filings, and legal brand protection awareness.",
+      images: [
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2769.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2769"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2926.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2926"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2928.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2928"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2938.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2938"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2942.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2942"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2954.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2954"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2973.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2973"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_2981.JPG",
+          caption: "Ipr Yatra 2025 - DSC_2981"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_3060.JPG",
+          caption: "Ipr Yatra 2025 - DSC_3060"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_3063.JPG",
+          caption: "Ipr Yatra 2025 - DSC_3063"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_3065.JPG",
+          caption: "Ipr Yatra 2025 - DSC_3065"
+        },
+        {
+          src: "/gallery/IPR YATRA 2025/DSC_3239.JPG",
+          caption: "Ipr Yatra 2025 - DSC_3239"
+        },
+      ]
+    },
+    {
+      id: "pm_vishwakarma_anakapalli",
+      title: "Pm Vishwakarma - Anakapalli",
+      category: "Events",
+      date: "August 2026",
+      description: "PM Vishwakarma training and developmental initiatives conducted in Anakapalli region.",
+      images: [
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/C0104T01 - Copy.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - C0104T01 - Copy"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/C0107T01.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - C0107T01"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/C0109T01 - Copy.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - C0109T01 - Copy"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/C0113T01 - Copy.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - C0113T01 - Copy"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/C0118T01 - Copy - Copy.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - C0118T01 - Copy - Copy"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/C0121T01.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - C0121T01"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08220.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08220"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08329.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08329"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08386.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08386"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08387.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08387"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08394.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08394"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08418.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08418"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08454.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08454"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08462.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08462"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Anakapalli/PYR08474.JPG",
+          caption: "Pm Vishwakarma - Anakapalli - PYR08474"
+        },
+      ]
+    },
+    {
+      id: "pm_vishwakarma_bapatla",
+      title: "Pm Vishwakarma - Bapatla",
+      category: "Events",
+      date: "August 2026",
+      description: "PM Vishwakarma training and developmental initiatives conducted in Bapatla region.",
+      images: [
+        {
+          src: "/gallery/pm vishwakarma/Bapatla/Clip0151T01.JPG",
+          caption: "Pm Vishwakarma - Bapatla - Clip0151T01"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Bapatla/Clip0186T01.JPG",
+          caption: "Pm Vishwakarma - Bapatla - Clip0186T01"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Bapatla/Clip0194T01.JPG",
+          caption: "Pm Vishwakarma - Bapatla - Clip0194T01"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Bapatla/DSC03221.JPG",
+          caption: "Pm Vishwakarma - Bapatla - DSC03221"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Bapatla/DSC03387.JPG",
+          caption: "Pm Vishwakarma - Bapatla - DSC03387"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Bapatla/DSC03442.JPG",
+          caption: "Pm Vishwakarma - Bapatla - DSC03442"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Bapatla/DSC03459.JPG",
+          caption: "Pm Vishwakarma - Bapatla - DSC03459"
+        },
+      ]
+    },
+    {
+      id: "pm_vishwakarma_narasaraopeta",
+      title: "Pm Vishwakarma - Narasaraopeta",
+      category: "Events",
+      date: "August 2026",
+      description: "PM Vishwakarma training and developmental initiatives conducted in Narasaraopeta region.",
+      images: [
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/Clip0210T01.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - Clip0210T01"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00014.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00014"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00015.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00015"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00017.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00017"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00085.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00085"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00136.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00136"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00193.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00193"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00236.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00236"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00423.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00423"
+        },
+        {
+          src: "/gallery/pm vishwakarma/Narasaraopeta/DSC00424.JPG",
+          caption: "Pm Vishwakarma - Narasaraopeta - DSC00424"
+        },
+      ]
+    },
   ];
 
   const activeEvent = eventsData.find((e) => e.id === activeEventId) || eventsData[0];
